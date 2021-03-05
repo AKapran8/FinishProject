@@ -1,2 +1,2 @@
 # FinishProject
-My fifnish project
+My finish project
