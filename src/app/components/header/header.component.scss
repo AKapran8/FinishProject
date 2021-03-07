@@ -1,0 +1,29 @@
+.header {
+   background-color: rgb(48, 46, 46);
+   padding: 30px 0;
+   margin-bottom: 50px;
+   
+   .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+   }
+
+   &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;      
+   }
+
+   &__search {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   &__title a {
+      color: white;
+      font-size: 32px;
+      margin-right: 35px;
+   }
+}

@@ -1,0 +1,27 @@
+.product {
+
+
+   .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+   }
+
+   &__title {
+      font-size: 30px;
+      color: rgb(48, 46, 46);
+   }
+
+   &__row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+   }
+
+   &__item {
+      height: 200px;
+      border: 1px solid black;
+      flex-basis: 24%;
+      margin-top: 30px;
+   }
+}

@@ -1,0 +1,27 @@
+.nav {
+   
+   &__list {
+      display: flex;
+   }
+   
+   &__item {
+      margin-right: 17px;
+   }
+   &__item:last-child {
+      margin: 0;
+   }
+
+   &__link {
+      color: gray;
+      text-transform: uppercase;
+   }
+   &__link i {
+      margin-right: 6px;
+   }
+   &__link:hover {
+      color: white;
+      transition: 0.35s;
+      padding-bottom: 4px;
+      border-bottom: 1px solid white;
+   }
+}

@@ -1,0 +1,18 @@
+<div class="product">
+   <div class="container">
+      <div class="product__title">Latest products</div>
+      <div class="product__row">
+         <div class="product__item" *ngFor='let item of items;'>
+            <p>{{item.name}}</p>
+            <p>{{item.phone}}</p>
+            <p>{{item.id}}</p>
+         </div>
+         <div class="product__item" *ngFor='let item of items; let i = index;'>
+            <p>{{item.name}}</p>
+         </div>
+         <div class="product__item" *ngFor='let item of items; let i = index;'>
+            <p>{{item.name}}</p>
+         </div>
+      </div>
+   </div>
+</div>
