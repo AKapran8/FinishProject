@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { IProduct, IGetProductResponse } from '../interfaces/product';
 
 
@@ -10,28 +10,21 @@ import { IProduct, IGetProductResponse } from '../interfaces/product';
 })
 export class ProductsService {
 
+  cartSubject = new Subject<IProduct>();
+
   constructor(private http: HttpClient) { }
 
 
 
-  // getUsers(): Observable<any[]> {
-  //   return this.http.get<any[]>('https://jsonplaceholder.typicode.com/users');
-  // }
-  // !For all products
+
   getProducts(): Observable<IGetProductResponse> {
     return this.http.get<IGetProductResponse>('https://nodejs-final-mysql.herokuapp.com/products?keyword=&pageNumber=1');
   }
 
+  buy(product: IProduct) {
+    this.cartSubject.next(product);
+  }
 
-  // !For one product
-  // getProsuctByName(value?: string): Observable<any[]> {
-  //   return this.http.get<any[]>(`link${value}`);
-  // }
-
-  // getUserById(value?: string): Observable<any[]> {
-  //   // if (!value) return [];
-  //   return this.http.get<any[]>(`https://jsonplaceholder.typicode.com/users/${value}`);
-  // }
 }
 
 
