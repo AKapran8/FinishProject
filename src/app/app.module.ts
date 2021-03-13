@@ -17,8 +17,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
 import { ProductByIDComponent } from './components/product-by-id/product-by-id.component';
-import { ProductByIdInfoComponent } from './components/product-by-id-info/product-by-id-info.component';
 import { ProductItemComponent } from './components/product/products-item/products-item.component';
+import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
+import { ProductByIdInformationComponent } from './components/product/product-by-id-information/product-by-id-information.component';
 // import { ProductsItemComponent } from './components/product/products-item/products-item.component';
 
 
@@ -38,8 +39,9 @@ import { ProductItemComponent } from './components/product/products-item/product
     CartComponent,
     MainComponent,
     ProductByIDComponent,
-    ProductByIdInfoComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    CartItemComponent,
+    ProductByIdInformationComponent
   ],
   imports: [
     BrowserModule,

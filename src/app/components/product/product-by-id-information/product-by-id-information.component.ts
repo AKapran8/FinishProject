@@ -5,11 +5,11 @@ import { IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
-  selector: 'app-product-by-id-info',
-  templateUrl: './product-by-id-info.component.html',
-  styleUrls: ['./product-by-id-info.component.scss']
+  selector: 'app-product-by-id-information',
+  templateUrl: './product-by-id-information.component.html',
+  styleUrls: ['./product-by-id-information.component.scss']
 })
-export class ProductByIdInfoComponent implements OnInit {
+export class ProductByIdInformationComponent implements OnInit {
 
   id: string;
   product: any;
