@@ -1,0 +1,36 @@
+.cart {
+   display: flex;
+   border:1px solid  black;
+   margin-bottom: 20px;
+   padding: 15px 0;
+   align-items: center;
+   width: 55%;
+
+   &__image {
+      flex: 0 0 10%;
+   }
+
+   &__image img{
+      height: 100px;
+   }
+
+   &__info {
+      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__price {
+      margin: 0 20px;
+   }
+
+   &__qty {
+      margin-right: 20px;
+
+      form select{
+         padding: 10px 0 15px 0;
+         background-color: rgb(188, 188, 192);
+         border-radius: 4px;
+     }  
+   }
+}

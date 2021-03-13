@@ -6,6 +6,20 @@
 
 .main {
 
+   &__back {
+      padding: 10px 15px;
+      display: block;
+      margin-bottom: 30px;
+      text-transform: capitalize;
+      border-radius: 5px;
+   }
+
+   &__back:hover {
+      background-color:rgb(101, 101, 104);
+      color:white;
+      transition: 0.3s;
+   }
+
    &__row {
       display: flex;
    }
