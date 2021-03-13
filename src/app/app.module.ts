@@ -16,7 +16,11 @@ import { LoginComponent } from './components/login/login.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
-import { ProductItemComponent } from './components/product-item/product-item.component';
+import { ProductByIDComponent } from './components/product-by-id/product-by-id.component';
+import { ProductByIdInfoComponent } from './components/product-by-id-info/product-by-id-info.component';
+import { ProductItemComponent } from './components/product/products-item/products-item.component';
+// import { ProductsItemComponent } from './components/product/products-item/products-item.component';
+
 
 
 @NgModule({
@@ -33,6 +37,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     LoginComponent,
     CartComponent,
     MainComponent,
+    ProductByIDComponent,
+    ProductByIdInfoComponent,
     ProductItemComponent
   ],
   imports: [

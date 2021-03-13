@@ -1,0 +1,49 @@
+.container {
+   width: 90%; 
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.main {
+
+   &__row {
+      display: flex;
+   }
+
+   &__descr  {
+      display: flex;
+      width: 75%;
+   }
+
+   &__image{
+      margin-right: 50px;
+      img {
+        width: 100%;
+      }
+      
+   }
+
+   &__info {
+      width: 27%;
+      font-size: 25px;
+   }
+
+   &__name {
+      font-size: 35px;
+   }
+   &__review {
+      margin: 20px 0;
+   }
+
+   &__price {
+      text-transform: uppercase;
+      margin: 20px 0;
+   }
+   &__description {
+      font-size: 15px;
+   }
+
+   &__card {
+      margin-left: 40px;
+   }
+}

@@ -1,0 +1,42 @@
+<div class="main">
+   <div class="container">
+      <div class="main__row">
+         <div class="main__descr">
+            <div class="main__image">
+               <img src="https://nodejs-final-mysql.herokuapp.com{{product.image}}" alt="{{product.name}}">
+            </div>
+            <div class="main__info">
+               <h3 class="main__name">{{product.name}}</h3>
+               <p class="main__review">{{product.numReviews}}</p>
+               <p class="main__price">Price: {{product.price}} $</p>
+               <p class="main__description">{{product.description}}</p>
+            </div>
+         </div>
+         <div class="main__card">
+            <div class="price">
+               <span>Price:</span>
+               <span>{{product.price}} $</span>
+            </div>
+            <div class="status">
+               <span>Status:</span>
+               <span>in stock</span>
+            </div>
+            <div class="qty">
+               <span>Qty:</span>
+               <form>
+                  <select>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                  </select>
+               </form>
+            </div>
+            <div class="button">
+               <button>Add to card</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -15,6 +15,6 @@ export class SliderComponent implements OnInit {
 
   }
 
-  homeSlider = { items: 1, dots: true, nav: true, loop: true };
+  homeSlider = { items: 1, dots: true, nav: false, loop: true };
 
 }

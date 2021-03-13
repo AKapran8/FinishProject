@@ -11,6 +11,23 @@
       color: rgb(48, 46, 46);
    }
    
+   &__btn {
+      margin: 30px 0 0 0;
+
+      button {
+         padding: 20px 15px;
+         margin-right: 10px;
+         font-size: 20px;
+         border-radius: 10px;
+         background-color: rgb(226, 219, 219);
+         font-weight: 600;
+      }
+
+      button:hover {
+         background-color: rgb(131, 123, 123);
+         transition: 0.3s;
+      }
+   }
 }
 
 

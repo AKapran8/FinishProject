@@ -1,0 +1,27 @@
+.product {
+   &__row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+   }
+
+   &__item {
+      flex: 0 0 24%;
+      border: 1px solid black;
+      margin-top: 30px;
+      padding: 30px 15px;
+      text-align: center;
+   }
+  &__img {
+     margin: 0 auto 20px auto;
+     display: block;
+     max-width: 200px;
+  }
+   &__review {
+      font-size: 20px;
+      margin: 10px 0;
+   }
+   &__price {
+      font-size: 30px;
+   }
+}
