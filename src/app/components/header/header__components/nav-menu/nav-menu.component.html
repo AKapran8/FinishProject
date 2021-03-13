@@ -1,20 +1,16 @@
 <div class="nav">
    <ul class="nav__list">
       <li class="nav__item">
-         <a routerLink="cart" class="nav__link">
+         <a routerLink="cart" class="nav__link" routerLinkActive>
             <i class="fas fa-shopping-cart"></i>
             Cart
          </a>
       </li>
       <li class="nav__item">
-         <a [routerLink]="'login'" class="nav__link">
+         <a routerLink="login" class="nav__link" routerLinkActive>
             <i class="fas fa-user"></i>
             sign in
          </a>
       </li>
    </ul>
 </div>
-
-
-
-<router-outlet></router-outlet>

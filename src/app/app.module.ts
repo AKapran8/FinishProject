@@ -15,6 +15,8 @@ import { AppBtnComponent } from './components/header/header__components/app-sear
 import { LoginComponent } from './components/login/login.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './components/main/main.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppInputComponent,
     AppBtnComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    MainComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,

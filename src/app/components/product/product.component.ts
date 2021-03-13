@@ -8,16 +8,8 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductComponent implements OnInit {
 
-  items: any[] = [];
+  constructor() { }
 
+  ngOnInit() { }
 
-  constructor(public productsServive: ProductsService) { }
-
-  ngOnInit(): void {
-    this.productsServive.getItems()
-      .subscribe((res: any[]) => {
-        console.log(res);
-        this.items.push(res);
-      })
-  }
 }
