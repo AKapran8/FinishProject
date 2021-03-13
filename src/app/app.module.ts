@@ -16,11 +16,10 @@ import { LoginComponent } from './components/login/login.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
-import { ProductByIDComponent } from './components/product-by-id/product-by-id.component';
 import { ProductItemComponent } from './components/product/products-item/products-item.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { ProductByIdInformationComponent } from './components/product/product-by-id-information/product-by-id-information.component';
-// import { ProductsItemComponent } from './components/product/products-item/products-item.component';
+import { ProductByIdComponent } from './components/product/product-by-id/product-by-id.component';
 
 
 
@@ -38,10 +37,10 @@ import { ProductByIdInformationComponent } from './components/product/product-by
     LoginComponent,
     CartComponent,
     MainComponent,
-    ProductByIDComponent,
     ProductItemComponent,
     CartItemComponent,
-    ProductByIdInformationComponent
+    ProductByIdInformationComponent,
+    ProductByIdComponent,
   ],
   imports: [
     BrowserModule,

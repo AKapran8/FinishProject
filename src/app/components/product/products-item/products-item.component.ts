@@ -30,4 +30,6 @@ export class ProductItemComponent implements OnInit {
     this.router.navigate([`products/${id}`]);
   }
 
+
+
 }

@@ -12,24 +12,35 @@
 
    &__descr  {
       display: flex;
-      width: 75%;
+      // width: 85%;
+      
    }
 
    &__image{
-      margin-right: 50px;
+      margin-right: 40px;
       img {
-        width: 100%;
+        width: 95%;
       }
       
    }
 
    &__info {
-      width: 27%;
-      font-size: 25px;
+      font-size: 20px;
+      width: 22%;
    }
 
    &__name {
-      font-size: 35px;
+      font-size: 20px;
+      position: relative;
+   }
+   &__name:after {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: rgb(117, 117, 122);
+      left: 0;
+      bottom: -10px;
+      position: absolute;
    }
    &__review {
       margin: 20px 0;
@@ -38,12 +49,78 @@
    &__price {
       text-transform: uppercase;
       margin: 20px 0;
+      position: relative;
    }
+   &__price:before {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: rgb(117, 117, 122);
+      left: 0;
+      top: -10px;
+      position: absolute;
+   }
+   &__price:after {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: rgb(117, 117, 122);
+      left: 0;
+      bottom: -10px;
+      position: absolute;
+   }
+ 
    &__description {
       font-size: 15px;
    }
 
    &__card {
-      margin-left: 40px;
+      width: 350px;
+      margin-left: 20px;
+      border: 1px solid black;
+      max-height: 220px;
+      min-width: 200px;
+      max-width: 400px;
+      font-size: 20px;
+      
    }
+   
+
+   &__prices {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+      padding: 15px;
+   }
+
+   &__status {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+      padding: 15px;
+   }
+
+   &__qty {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+      padding: 15px;
+   }
+
+   &__btn button{
+      display: block;
+      margin: 15px auto;
+      width: 80%;
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      font-weight: 700;
+      padding: 10px;
+   }
+   &__btn button:hover{
+      background-color: rgb(199, 195, 195);
+      color: black;
+      transition: 0.3s;
+   }
+
 }
