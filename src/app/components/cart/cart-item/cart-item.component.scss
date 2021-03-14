@@ -4,10 +4,12 @@
    margin-bottom: 20px;
    padding: 15px 0;
    align-items: center;
-   width: 55%;
+   width: 700px;
+   
 
    &__image {
       flex: 0 0 10%;
+      margin-left: 10px;
    }
 
    &__image img{
@@ -23,13 +25,15 @@
    &__price {
       margin: 0 20px;
    }
-
+   &__delete {
+      margin-right: 10px;
+   }
    &__qty {
       margin-right: 20px;
 
       form select{
          padding: 10px 0 15px 0;
-         background-color: rgb(188, 188, 192);
+         background-color: white;
          border-radius: 4px;
      }  
    }

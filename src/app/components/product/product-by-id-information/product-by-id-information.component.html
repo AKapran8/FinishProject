@@ -3,7 +3,7 @@
       <button class="main__back" routerLink=''>
          Go back
       </button>
-      <div class="main__row">
+      <div class="main__row" *ngIf='product'>
          <div class="main__descr">
             <div class="main__image">
                <img src="https://nodejs-final-mysql.herokuapp.com{{product.image}}" alt="{{product.name}}">

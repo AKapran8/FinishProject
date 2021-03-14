@@ -7,13 +7,20 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./nav-menu.component.scss']
 })
 export class NavMenuComponent implements OnInit {
+
   count: number = 0;
+  cCount: any;
   constructor(public productService: ProductsService) { }
+
   ngOnInit(): void {
-    this.productService.cartSubject.subscribe(product => {
-      if (product) {
-        this.count++;
+    this.productService.cartSubject.subscribe(change => {
+      if (change && change.count) {
+        this.cCount = change.count; 
       }
     })
+
   }
+
+  
+  
 }

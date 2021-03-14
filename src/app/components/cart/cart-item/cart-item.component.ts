@@ -10,14 +10,12 @@ import { IProduct } from 'src/app/interfaces/product';
 export class CartItemComponent implements OnInit {
 
   list: any[] = [];
-  sum: number = 0;
-  // Test 15 line add service
+  pp: any;
   constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
     this.productService.productCartSubject.subscribe(product => {
-      this.list.push(product);
-      this.sum = this.list.reduce((acc, sum) => acc += sum.price)
+      if (product) this.list.push(product);
     })
   }
 

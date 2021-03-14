@@ -8,8 +8,11 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(public productService: ProductsService) { }
 
   ngOnInit() { }
 
+  goToPage(value: number) {
+    this.productService.goToPage(value);
+  }
 }
