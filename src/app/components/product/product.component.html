@@ -1,10 +1,18 @@
 <div class="product">
    <div class="container">
       <div class="product__title">Latest products</div>
-      <app-products-item></app-products-item>
+
+
+
+
+
+      <app-products-item *ngFor='let product of products'></app-products-item>
+
+
+
       <div class="product__btn">
-         <button (click)='goToPage(1)'>1</button>
-         <button (click)='goToPage(2)'>2</button>
+         <button (click)='pageNumber(1)'>1</button>
+         <button (click)='pageNumber(2)'>2</button>
       </div>
 
    </div>

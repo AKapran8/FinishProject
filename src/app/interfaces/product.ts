@@ -19,3 +19,8 @@ export interface IGetProductResponse {
    pages: number;
    products: IProduct[];
 }
+
+export interface IGetProductAndCount {
+   products: IProduct;
+   count: number;
+}
