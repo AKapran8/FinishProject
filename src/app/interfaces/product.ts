@@ -24,3 +24,4 @@ export interface IGetProductAndCount {
    products: IProduct;
    count: number;
 }
+

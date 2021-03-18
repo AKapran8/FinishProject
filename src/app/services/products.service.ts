@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { IProduct, IGetProductResponse, IGetProductAndCount } from '../interfaces/product';
-import { LocalStorageService } from './local-storage.service';
 
 
 
@@ -22,7 +21,7 @@ export class ProductsService {
   productCartSubject = new Subject<IProduct>();
   // ---------------------------------------
   pageNumber: number;
-  constructor(private http: HttpClient, public localStorageService: LocalStorageService) { }
+  constructor(private http: HttpClient) { }
 
   goToPage(value: number) {
     this.pageNumber = value;

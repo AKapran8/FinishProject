@@ -1,6 +1,19 @@
 <div class="slider">
    <div class="container">
       <owl-carousel [options]="homeSlider" [carouselClasses]="['owl-theme', 'customClassName']">
+         <div class="slider__item" *ngFor='let product of topProducts'>
+            <h2 class="slider__name">{{product.name}}</h2>
+            <img src="https://nodejs-final-mysql.herokuapp.com{{product.image}}" alt="{{product.name}}"
+               class="slider__img">
+         </div>
+      </owl-carousel>
+   </div>
+</div>
+
+
+<!-- <div class="slider">
+   <div class="container">
+      <owl-carousel [options]="homeSlider" [carouselClasses]="['owl-theme', 'customClassName']">
          <div class="slider__item">
             <h2>APPLE AIRPODS MAX - SPACE GRAY ($699.99)</h2>
             <div id="one"></div>
@@ -15,4 +28,4 @@
          </div>
       </owl-carousel>
    </div>
-</div>
+</div> -->

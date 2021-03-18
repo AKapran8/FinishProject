@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IGetProductResponse, IProduct } from 'src/app/interfaces/product';
+import { TopProsuctsService } from 'src/app/services/top-prosucts.service';
 
 @Component({
   selector: 'app-slider',
@@ -7,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
+  topProducts: any[] = [];
 
-  constructor() { }
+  constructor(public topProductsService: TopProsuctsService) { }
 
 
   ngOnInit() {
-
+    this.topProductsService.getProducts()
+      .subscribe((res: IProduct[]) => {
+        this.topProducts = res;
+      });
   }
 
   homeSlider = {
@@ -21,7 +27,8 @@ export class SliderComponent implements OnInit {
     nav: false,
     loop: true,
     autoplay: true,
-    autoplayTimeout: 3400
+    autoplayTimeout: 3400,
+    smartSpeed: 1000
   };
 
 }

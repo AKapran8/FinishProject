@@ -3,10 +3,13 @@
       <div class="product__title">Latest products</div>
 
 
+      <div class="product__row">
+         <app-products-item *ngFor='let product of products' [product]='product' class="product__item">
+         </app-products-item>
+      </div>
 
 
 
-      <app-products-item *ngFor='let product of products'></app-products-item>
 
 
 

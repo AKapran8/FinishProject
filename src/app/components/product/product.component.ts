@@ -22,8 +22,8 @@ export class ProductComponent implements OnInit {
   }
 
   pageNumber(value: number) {
-    this.productService.goToPage(value).subscribe(newProducts => {
-
+    this.productService.goToPage(value).subscribe((newProducts: IGetProductResponse) => {
+      this.products = newProducts.products;
     });
   }
 }
