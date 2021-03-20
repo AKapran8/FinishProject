@@ -10,13 +10,15 @@ import { IProduct } from 'src/app/interfaces/product';
 export class CartComponent implements OnInit {
 
   list: any[] = [];
-  pp: any;
+
 
   constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.productService.productCartSubject.subscribe(product => {
-      if (product) this.list.push(product);
+    this.productService.cartSubject.subscribe(change => {
+      if (change && change.product) {
+        this.list.push('product');
+      }
     })
   }
 

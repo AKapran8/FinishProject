@@ -57,15 +57,15 @@ export class ProductsService {
   // !Перевірити параметри функції, передивитися на рахунок заміни у всіх інших компонентах
   // !productByIdInformation
   // !app.component умова
-  buyProductAndCount(product: IGetProductAndCount) {
-    // this.productCartSubject.next(product);
+  // buyProductAndCount(product: IGetProductAndCount) {
+  //   this.productCartSubject.next(product);
 
-    // this.productAndCount = JSON.parse(localStorage.getItem('products'));
-    // // countByProduct
-    // this.productAndCount.push({ products: product, count: 25 });
+  //   this.productAndCount = JSON.parse(localStorage.getItem('products'));
+  //   // countByProduct
+  //   this.productAndCount.push({ products: product, count: 25 });
 
-    // localStorage.setItem('products', JSON.stringify(this.productAndCount));
-  }
+  //   localStorage.setItem('products', JSON.stringify(this.productAndCount));
+  // }
 
 }
 

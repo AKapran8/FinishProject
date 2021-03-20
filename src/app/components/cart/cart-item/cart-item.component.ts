@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
 
@@ -9,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartItemComponent implements OnInit {
 
+  @Input('item') item: IProduct;
 
   constructor(public productService: ProductsService) { }
 
