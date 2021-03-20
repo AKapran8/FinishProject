@@ -1,16 +1,12 @@
 .product {
-   &__row {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-   }
+ 
 
    &__item {
-      flex: 0 0 24%;
       border: 1px solid black;
       margin-top: 30px;
       padding: 30px 15px;
       text-align: center;
+      min-height: 345px;
    }
   &__img {
      margin: 0 auto 20px auto;
@@ -18,10 +14,39 @@
      max-width: 200px;
   }
    &__review {
-      font-size: 20px;
-      margin: 10px 0;
+      font-size: 18px;
+      margin-left: 10px;
    }
    &__price {
-      font-size: 30px;
+      font-size: 20px;
+      font-weight: 700;
+   }
+   &__rating {
+      margin: 10px 0;
+      text-align: center;
+   }
+   &__star {
+      color: rgb(255, 238, 0);
+      font-size: 20px;
+   }
+
+   &__star0:before {
+      content: '☆☆☆☆☆';
+   }
+   &__star1:before {
+      content: '★☆☆☆☆';
+   }
+
+   &__star2:before {
+      content: '★★☆☆☆';
+   }
+   &__star3:before {
+      content: '★★★☆☆';
+   }
+   &__star4:before {
+      content: '★★★★☆';
+   }
+   &__star5:before {
+      content: '★★★★★';
    }
 }

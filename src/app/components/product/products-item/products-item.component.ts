@@ -22,10 +22,6 @@ export class ProductItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.productService.getProducts()
-    //   .subscribe((res: IGetProductResponse) => {
-    //     this.products = res.products;
-    //   });
   }
 
   goToProd(id: string): void {

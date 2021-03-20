@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IGetProductResponse, IProduct } from 'src/app/interfaces/product';
+import { IProduct } from 'src/app/interfaces/product';
 import { TopProsuctsService } from 'src/app/services/top-prosucts.service';
 
 @Component({
@@ -30,5 +30,4 @@ export class SliderComponent implements OnInit {
     autoplayTimeout: 3400,
     smartSpeed: 1000
   };
-
 }

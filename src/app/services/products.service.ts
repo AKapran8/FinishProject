@@ -15,12 +15,11 @@ export class ProductsService {
   productAndCount: IGetProductAndCount[];
   // При виборі селекту
   countByProduct: number;
+  pageNumber: number;
 
   cartSubject = new Subject<any>();
-  // ---------------------------------------
   productCartSubject = new Subject<IProduct>();
-  // ---------------------------------------
-  pageNumber: number;
+
   constructor(private http: HttpClient) { }
 
   goToPage(value: number) {
@@ -39,10 +38,9 @@ export class ProductsService {
   buy(product: IProduct) {
 
     if (product) {
-      this.count++;
+      this.count++; //!
       localStorage.setItem('count', this.count.toString());
       this.cCount = localStorage.getItem('count');
-
 
     }
     this.cartSubject.next({ product, count: this.count });
@@ -53,6 +51,20 @@ export class ProductsService {
     this.productAndCount.push({ products: product, count: 25 });
 
     localStorage.setItem('products', JSON.stringify(this.productAndCount));
+  }
+
+
+  // !Перевірити параметри функції, передивитися на рахунок заміни у всіх інших компонентах
+  // !productByIdInformation
+  // !app.component умова
+  buyProductAndCount(product: IGetProductAndCount) {
+    // this.productCartSubject.next(product);
+
+    // this.productAndCount = JSON.parse(localStorage.getItem('products'));
+    // // countByProduct
+    // this.productAndCount.push({ products: product, count: 25 });
+
+    // localStorage.setItem('products', JSON.stringify(this.productAndCount));
   }
 
 }

@@ -1,11 +1,14 @@
-<div class="container product">
-   <div class="product__row">
-      <div class="product__item" (click)='goToProd(product._id)'>
-         <img src="https://nodejs-final-mysql.herokuapp.com{{product.image}}" alt="Img" class="product__img"
-            *ngIf='product'>
-         <p>{{product.name}}</p>
-         <p class="product__review">{{product.rating}}</p>
-         <h4 class="product__price">$ {{product.price}}</h4>
+<div class="product">
+   <div class="product__item" (click)='goToProd(product._id)'>
+      <img src="https://nodejs-final-mysql.herokuapp.com{{product.image}}" alt="Img" class="product__img"
+         *ngIf='product'>
+      <p>{{product.name}}</p>
+      <div class="product__rating">
+         <p>
+            <span class="product__star product__star{{product.rating}}"></span>
+            <span class="product__review">{{product.numReviews}} reviews</span>
+         </p>
       </div>
+      <h4 class="product__price">$ {{product.price}}</h4>
    </div>
 </div>

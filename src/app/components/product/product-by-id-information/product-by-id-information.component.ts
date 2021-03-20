@@ -13,6 +13,8 @@ export class ProductByIdInformationComponent implements OnInit {
 
   id: string;
   product: any;
+  countByProduct = 0;
+  counts = Array;
 
   constructor(public productService: ProductsService, private activateRoute: ActivatedRoute, public http: HttpClient) { }
 
@@ -24,6 +26,8 @@ export class ProductByIdInformationComponent implements OnInit {
     });
   }
 
+  // IProduct => IGetProductAndCount але це ще напевно створити функцію в сервісі для покупки щоб в 
+  // неї продукт іншого інтерфесу передати
   buyProduct(product: IProduct) {
     this.productService.buy(product);
   }

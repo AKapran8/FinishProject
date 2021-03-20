@@ -6,6 +6,17 @@
 
 .main {
 
+   &__select {
+      background-color: rgb(238, 232, 232);
+      padding: 10px 20px;
+      border-radius: 6px;
+
+      option {
+         margin: 5px 0;
+         display: block;
+      }
+   }
+
    &__back {
       padding: 10px 15px;
       display: block;
@@ -26,7 +37,6 @@
 
    &__descr  {
       display: flex;
-      // width: 85%;
       
    }
 
@@ -92,7 +102,8 @@
       width: 350px;
       margin-left: 20px;
       border: 1px solid black;
-      max-height: 220px;
+      min-height: 200px;
+      max-height: 250px;
       min-width: 200px;
       max-width: 400px;
       font-size: 20px;

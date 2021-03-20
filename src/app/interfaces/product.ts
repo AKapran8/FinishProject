@@ -11,7 +11,8 @@ export interface IProduct {
    category: string,
    user: string,
    createdAt: string,
-   updatedAt: string
+   updatedAt: string,
+   reviews: IProductReviews
 }
 
 export interface IGetProductResponse {
@@ -25,3 +26,13 @@ export interface IGetProductAndCount {
    count: number;
 }
 
+export interface IProductReviews {
+   _id: string,
+   name: string,
+   rating: number,
+   comment: string,
+   user: string,
+   createdAt: string,
+   updatedAt: string,
+   product_id: string
+}
