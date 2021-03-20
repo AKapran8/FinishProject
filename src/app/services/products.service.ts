@@ -4,7 +4,6 @@ import { Observable, Subject } from 'rxjs';
 import { IProduct, IGetProductResponse, IGetProductAndCount } from '../interfaces/product';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,16 +15,16 @@ export class ProductsService {
   // При виборі селекту
   countByProduct: number;
   pageNumber: number;
+  findProduct: string;
 
   cartSubject = new Subject<any>();
   productCartSubject = new Subject<IProduct>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  goToPage(value: number) {
+  goToPage(value: number): Observable<IGetProductResponse> {
     this.pageNumber = value;
-    console.log(this.pageNumber);
-
     return this.getProducts();
   }
 
@@ -35,37 +34,35 @@ export class ProductsService {
   }
 
 
-  buy(product: IProduct) {
+  // buy(product: IProduct): void {
+  //   if (product) {
+  //     this.count++;
+  //     localStorage.setItem('count', this.count.toString());
+  //     this.cCount = localStorage.getItem('count');
+  //   }
+  //   this.cartSubject.next({ product, count: this.count });
+  // }
 
-    if (product) {
-      this.count++; //!
-      localStorage.setItem('count', this.count.toString());
-      this.cCount = localStorage.getItem('count');
-
-    }
-    this.cartSubject.next({ product, count: this.count });
-    this.productCartSubject.next(product);
-
-    this.productAndCount = JSON.parse(localStorage.getItem('products'));
-    // countByProduct
-    this.productAndCount.push({ products: product, count: 25 });
-
-    localStorage.setItem('products', JSON.stringify(this.productAndCount));
-  }
-
+  // findProductItem() {
+  //   // this.findProduct =
+  // }
 
   // !Перевірити параметри функції, передивитися на рахунок заміни у всіх інших компонентах
   // !productByIdInformation
   // !app.component умова
-  // buyProductAndCount(product: IGetProductAndCount) {
-  //   this.productCartSubject.next(product);
+  buyProductAndCount(productAndCount: IGetProductAndCount): void {
+    if (productAndCount.products) {
+      this.count++;
+      localStorage.setItem('count', this.count.toString());
+      this.cCount = localStorage.getItem('count');
+    }
+    this.cartSubject.next({ products: productAndCount.products, count: this.count });
 
-  //   this.productAndCount = JSON.parse(localStorage.getItem('products'));
-  //   // countByProduct
-  //   this.productAndCount.push({ products: product, count: 25 });
 
-  //   localStorage.setItem('products', JSON.stringify(this.productAndCount));
-  // }
+    this.productAndCount = JSON.parse(localStorage.getItem('products'));
+    this.productAndCount.push({ products: productAndCount.products, count: productAndCount.count });
+    localStorage.setItem('products', JSON.stringify(this.productAndCount));
+  }
 
 }
 

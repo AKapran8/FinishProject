@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IProduct } from 'src/app/interfaces/product';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-app-input',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppInputComponent implements OnInit {
 
-  constructor() { }
+  @Input('product') product: IProduct;
+  forFind: string;
+
+  constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
+
   }
 
 }

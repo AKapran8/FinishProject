@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { OwlModule } from 'ngx-owl-carousel';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,7 @@ import { MainComponent } from './components/main/main.component';
 import { ProductItemComponent } from './components/product/products-item/products-item.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { ProductByIdInformationComponent } from './components/product/product-by-id-information/product-by-id-information.component';
-import { ProductByIdComponent } from './components/product/product-by-id/product-by-id.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 
@@ -40,13 +41,14 @@ import { ProductByIdComponent } from './components/product/product-by-id/product
     ProductItemComponent,
     CartItemComponent,
     ProductByIdInformationComponent,
-    ProductByIdComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     OwlModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

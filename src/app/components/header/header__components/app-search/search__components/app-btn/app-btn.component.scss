@@ -1,4 +1,6 @@
 .button {
+   display: flex;
+   flex-direction: row;
    button {
       text-transform: uppercase;
       color: rgb(23, 201, 7);
