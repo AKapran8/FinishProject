@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     let products = JSON.stringify(localStorage.getItem('products'));
-    if (!products || !products.length) {
+    if (!products || products.length) {
       localStorage.setItem('products', JSON.stringify([]));
     }
   }

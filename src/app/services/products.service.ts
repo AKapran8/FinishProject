@@ -12,7 +12,6 @@ export class ProductsService {
   count = parseInt(localStorage.getItem('count'), 10) || 0;
   cCount: any;
   productAndCount: IGetProductAndCount[];
-  // При виборі селекту
   countByProduct: number;
   pageNumber: number;
   findProduct: string;
@@ -20,36 +19,17 @@ export class ProductsService {
   cartSubject = new Subject<any>();
   productCartSubject = new Subject<IProduct>();
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   goToPage(value: number): Observable<IGetProductResponse> {
     this.pageNumber = value;
     return this.getProducts();
   }
 
-  // Отримуєм продукти
   getProducts(): Observable<IGetProductResponse> {
     return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=&pageNumber=${this.pageNumber}`);
   }
 
-
-  // buy(product: IProduct): void {
-  //   if (product) {
-  //     this.count++;
-  //     localStorage.setItem('count', this.count.toString());
-  //     this.cCount = localStorage.getItem('count');
-  //   }
-  //   this.cartSubject.next({ product, count: this.count });
-  // }
-
-  // findProductItem() {
-  //   // this.findProduct =
-  // }
-
-  // !Перевірити параметри функції, передивитися на рахунок заміни у всіх інших компонентах
-  // !productByIdInformation
-  // !app.component умова
   buyProductAndCount(productAndCount: IGetProductAndCount): void {
     if (productAndCount.products) {
       this.count++;

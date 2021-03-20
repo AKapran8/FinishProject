@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-app-btn',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppBtnComponent implements OnInit {
 
+  @Input('searchProduct') searchProduct: string;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  hello() {
+    alert('hello');
+  }
 }
