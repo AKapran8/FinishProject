@@ -1,4 +1,6 @@
+import { IProduct } from 'src/app/interfaces/product';
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-app-btn',
@@ -7,14 +9,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AppBtnComponent implements OnInit {
 
-  @Input('searchProduct') searchProduct: string;
+  @Input('searchProductBtn') searchProduct: string;
+  products: IProduct;
 
-  constructor() { }
+  constructor(public productsService: ProductsService) { }
 
   ngOnInit(): void {
   }
 
-  hello() {
-    alert('hello');
+  findProduct() {
+    // alert(`Hello ${this.searchProduct}`);
+
+    this.productsService.searchProductFunction(this.searchProduct, this.products);
+
   }
+
 }
+
