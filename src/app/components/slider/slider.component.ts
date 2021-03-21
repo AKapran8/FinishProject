@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/product';
 import { TopProsuctsService } from 'src/app/services/top-prosucts.service';
@@ -9,25 +11,18 @@ import { TopProsuctsService } from 'src/app/services/top-prosucts.service';
 })
 export class SliderComponent implements OnInit {
 
-  topProducts: any[] = [];
 
-  constructor(public topProductsService: TopProsuctsService) { }
+  items: IProduct[] = [];
 
+  constructor(public http: HttpClient, public router: Router, public topProductService: TopProsuctsService) { }
 
-  ngOnInit() {
-    this.topProductsService.getProducts()
+  // homeSlider = {items : 1, dots: true, nav: false, loop: true};
+
+  ngOnInit(): void {
+    this.topProductService.getProducts()
       .subscribe((res: IProduct[]) => {
-        this.topProducts = res;
+        console.log(res);
+        this.items = res;
       });
   }
-
-  homeSlider = {
-    items: 1,
-    dots: true,
-    nav: false,
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 3400,
-    smartSpeed: 1000
-  };
 }

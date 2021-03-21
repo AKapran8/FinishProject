@@ -1,31 +1,37 @@
-.slider{
-   margin-top: 30px;
+.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 15px auto;
+    width: 90%;
+    max-width: 1100px;
+    
 
-   .container {
-       width: 90%;
-       max-width: 1200px;
-       margin: 0 auto;
-   }
+    .carousel-inner {
+        height: 400px;
 
-   &__img {
-       display: block;
-       width: 25%;
-       border-radius: 100%;
-   }
+        h2 {
+            margin: 20px auto 5px auto;
+            font-weight: normal;
+            width: fit-content;
+            color: white;
+            font-size: 30px;
+        }
 
-   &__name {
-    color: white;
-    margin: 30px 0 40px 0;
-    font-size: 24px;
-   }
+        img{
+            margin-top: 30px;
+        }
 
-   &__item{
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       margin: 0 auto;
-       width: 95%;
-       padding: 30px 0;
-       background-color: rgb(48, 46, 46);
-   }
+        * {
+            margin: auto;
+        }
+    }
+
+    height: 400px;
+    background-color: #3b3b3b;
+}
+
+.product {
+    width: 300px;
+    border-radius: 50%;
 }
