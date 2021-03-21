@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -9,8 +9,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class AppInputComponent implements OnInit {
 
-  @Input('product') product: IProduct;
-  forFind: string;
+  searchProduct: string;
 
   constructor(public productService: ProductsService) { }
 
