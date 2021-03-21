@@ -21,6 +21,7 @@ export class AppBtnComponent implements OnInit {
     // alert(`Hello ${this.searchProduct}`);
 
     this.productsService.searchProductFunction(this.searchProduct, this.products);
+    this.searchProduct = '';
 
   }
 
