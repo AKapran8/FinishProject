@@ -1,3 +1,22 @@
-<p *ngFor='let item of products'>
-   {{item.products.name}}
-</p>
+<div *ngFor='let item of products; let i = index;' class="item">
+   <img src="https://nodejs-final-mysql.herokuapp.com{{item.products.image}}" alt="{{item.products.name}}"
+      *ngIf='products' class="item__img">
+   <div class="item__descr">
+      <p class="item__name">
+         {{item.products.name}}
+      </p>
+      <p class="item__price">
+         {{item.products.price}} $
+      </p>
+      <!-- ! -->
+      <!-- <select [(ngModel)]='selectedCount' class="main__select">
+         <option *ngFor="let value of counts" [value]="value">
+            {{value}}
+         </option>
+      </select> -->
+      <!-- ! -->
+      <div class="item__remove">
+         <i class="fas fa-trash" (click)='removeProductFormCart(i)'></i>
+      </div>
+   </div>
+</div>

@@ -63,11 +63,15 @@
       height: 2px;
       background-color: rgb(117, 117, 122);
       left: 0;
-      bottom: -10px;
+      bottom: -5px;
       position: absolute;
    }
    &__review {
-      margin: 20px 0;
+      margin: 20px 0 0 10px;
+   }
+   &__rating {
+      align-items: center;
+      text-align: center;
    }
 
    &__price {
@@ -148,4 +152,29 @@
       transition: 0.3s;
    }
 
+
+   &__star {
+      color: rgb(255, 238, 0);
+      font-size: 20px;
+   }
+
+   &__star0:before {
+      content: '☆☆☆☆☆';
+   }
+   &__star1:before {
+      content: '★☆☆☆☆';
+   }
+
+   &__star2:before {
+      content: '★★☆☆☆';
+   }
+   &__star3:before {
+      content: '★★★☆☆';
+   }
+   &__star4:before {
+      content: '★★★★☆';
+   }
+   &__star5:before {
+      content: '★★★★★';
+   }
 }

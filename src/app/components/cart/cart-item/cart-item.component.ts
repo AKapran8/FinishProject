@@ -12,13 +12,19 @@ import { ProductsService } from 'src/app/services/products.service';
 export class CartItemComponent implements OnInit {
 
   // @Input('item') item: IProduct;
-
+  // selectedCount = 1;
+  // counts: number[] = [];
   products: IGetProductAndCount[] = [];
 
   constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
     this.products = JSON.parse(localStorage.getItem('products'));
+  }
+
+  removeProductFormCart(i: number) {
+    this.products.splice(i, 1);
+    // this.products.localStorage.removeItem()
   }
 
 }

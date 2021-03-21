@@ -10,7 +10,10 @@
         </div>
         <div class="main__info">
           <h3 class="main__name">{{product.name}}</h3>
-          <p class="main__review">{{product.numReviews}}</p>
+          <p>
+            <span class="main__star main__star{{product.rating}}"></span>
+            <span class="main__review">{{product.numReviews}} reviews</span>
+          </p>
           <p class="main__price">Price: {{product.price}} $</p>
           <p class="main__description">{{product.description}}</p>
         </div>
@@ -26,11 +29,11 @@
         </div>
         <div class="main__qty">
           <span>Qty:</span>
-            <select [(ngModel)]='selectedCount' class="main__select">
-              <option *ngFor="let value of counts" [value]="value">
-                {{value}}
-              </option>
-            </select>
+          <select [(ngModel)]='selectedCount' class="main__select">
+            <option *ngFor="let value of counts" [value]="value">
+              {{value}}
+            </option>
+          </select>
         </div>
         <div class="main__btn">
           <button (click)=buyProduct(product)>Add to card</button>
@@ -39,7 +42,3 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <app-cart></app-cart>
-</div>
-<!-- [attr.disabled]='product.countInStock === 0 ? true, null' -->

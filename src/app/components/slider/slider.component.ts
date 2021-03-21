@@ -21,7 +21,7 @@ export class SliderComponent implements OnInit {
   ngOnInit(): void {
     this.topProductService.getProducts()
       .subscribe((res: IProduct[]) => {
-        console.log(res);
+        // console.log(res);
         this.items = res;
       });
   }
