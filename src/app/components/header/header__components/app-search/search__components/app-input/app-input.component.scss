@@ -1,7 +1,10 @@
 .app__input {
+   display: flex;
    input {
       padding: 10px 16px;
       border-radius: 7px;
+      display: block;
+      margin-right: 15px;
    }
    margin-right: 12px;
 }
