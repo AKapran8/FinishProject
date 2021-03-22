@@ -1,6 +1,5 @@
 import { IGetProductAndCount } from './../../../interfaces/product';
 import { Component, OnInit, Input } from '@angular/core';
-import { IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
 
@@ -11,19 +10,25 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartItemComponent implements OnInit {
 
-  // @Input('item') item: IProduct;
+  @Input('item') item: IGetProductAndCount;
   // selectedCount = 1;
   // counts: number[] = [];
-  products: IGetProductAndCount[] = [];
+
 
   constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.products = JSON.parse(localStorage.getItem('products'));
+
   }
 
-  removeProductFormCart(i: number) {
-    this.products.splice(i, 1);
+  removeProductFormCart() {
+    // this.products.splice(i, 1);
+    // console.log(i);
+    // console.log(this.products[i]);
+    // this.products = JSON.(localStorage.getItem('products'));
+    // console.log(this.products[i]);
+    // this.products.push({ products: products.products, count: productAndCount.count });
+    // this.products[i] = JSON.parse(localStorage.removeItem('products'));
     // this.products.localStorage.removeItem()
   }
 

@@ -1,3 +1,4 @@
+// Опис товара, его вид
 export interface IProduct {
    _id: string,
    rating: number,

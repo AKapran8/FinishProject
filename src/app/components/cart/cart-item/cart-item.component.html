@@ -1,6 +1,6 @@
-<div *ngFor='let item of products; let i = index;' class="item">
+<div class="item">
    <img src="https://nodejs-final-mysql.herokuapp.com{{item.products.image}}" alt="{{item.products.name}}"
-      *ngIf='products' class="item__img">
+      class="item__img">
    <div class="item__descr">
       <p class="item__name">
          {{item.products.name}}
@@ -16,7 +16,7 @@
       </select> -->
       <!-- ! -->
       <div class="item__remove">
-         <i class="fas fa-trash" (click)='removeProductFormCart(i)'></i>
+         <i class="fas fa-trash"></i>
       </div>
    </div>
 </div>

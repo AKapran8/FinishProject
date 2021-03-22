@@ -1,3 +1,4 @@
+import { IGetProductAndCount } from './../../interfaces/product';
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -8,6 +9,8 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+
+  products: IGetProductAndCount[] = [];
 
   productsInCard: any[] = [];
 
@@ -21,6 +24,8 @@ export class CartComponent implements OnInit {
         this.productsInCard.push('product');
       }
     })
+
+    this.products = JSON.parse(localStorage.getItem('products'));
   }
 
 }

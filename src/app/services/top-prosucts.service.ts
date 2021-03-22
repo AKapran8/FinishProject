@@ -11,7 +11,7 @@ export class TopProsuctsService {
   constructor(private http: HttpClient) { }
 
 
-
+  // Продукты для слайдера
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(`https://nodejs-final-mysql.herokuapp.com/products/top`);
   }

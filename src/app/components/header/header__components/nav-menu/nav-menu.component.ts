@@ -13,14 +13,13 @@ export class NavMenuComponent implements OnInit {
   constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
+    // функция для отображения количества товаров в корзине
     this.productService.cartSubject.subscribe(change => {
       if (change && change.count) {
-        this.cCount = change.count; 
+        this.cCount = change.count;
       }
     })
 
   }
 
-  
-  
 }

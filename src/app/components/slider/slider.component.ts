@@ -11,12 +11,10 @@ import { TopProsuctsService } from 'src/app/services/top-prosucts.service';
 })
 export class SliderComponent implements OnInit {
 
-
   items: IProduct[] = [];
+  id: string;
 
   constructor(public http: HttpClient, public router: Router, public topProductService: TopProsuctsService) { }
-
-  // homeSlider = {items : 1, dots: true, nav: false, loop: true};
 
   ngOnInit(): void {
     this.topProductService.getProducts()
@@ -25,4 +23,12 @@ export class SliderComponent implements OnInit {
         this.items = res;
       });
   }
+
+  // Переход на продукт при клике
+  goToProd(id: string): void {
+    this.router.navigate([`products/${id}`]);
+  }
 }
+
+
+
