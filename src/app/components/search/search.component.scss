@@ -1,0 +1,19 @@
+.search {
+
+   .container {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1200px;
+   }
+
+   &__items {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+   }
+
+   &__item {
+      flex: 1 1 24%;
+      padding: 0 15px;
+   }
+}

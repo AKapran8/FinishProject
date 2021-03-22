@@ -18,28 +18,28 @@ export class SearchComponent implements OnInit {
   constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts()
+    this.productService.getSearchProducts()
       .subscribe((res: IGetProductResponse) => {
         // debugger;
         this.products = res.products;
-        console.log(this.products);
+        // console.log(this.products);
         // this.dublicate = this.products.slice(0);
-        console.log(this.dublicate);
+        // console.log(this.dublicate);
         // this.productService.qqqqq(this.products, this.dublicate);
         this.productService.searchSubject.subscribe(aaa => {
           if (aaa !== '' || aaa === undefined) {
-            console.log(aaa);
+            // console.log(aaa);
             this.products.forEach((element, index) => {
               if (element.name.toLowerCase().includes(aaa) === true) {
                 this.i = index;
                 // console.log(aaa);
-                console.log(element.name.toLowerCase());
-                console.log(this.dublicate);
+                // console.log(element.name.toLowerCase());
+                // console.log(this.dublicate);
                 this.dublicate.push(element);
-                console.log(this.dublicate);
-                console.log(this.i);
+                // console.log(this.dublicate);
+                // console.log(this.i);
               } else {
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAndrii the best');
+                console.log('Wrong product');
               }
               // this.searchSubject.next(this.dublicate);
             })

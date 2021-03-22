@@ -78,6 +78,9 @@ export class ProductsService {
 
     // return this.getSearchProducts();
   }
+  getSearchProducts(): Observable<IGetProductResponse> {
+    return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=${this.searchProduct}`);
+  }
 
   // Результаты поиска
   // getSearchProducts(): Observable<IGetProductResponse> {
