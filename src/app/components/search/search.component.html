@@ -1,1 +1,9 @@
-<p>search works!</p>
+<app-search-item></app-search-item>
+<div class="search">
+   <div class="container">
+      <div class="search__row">
+         <app-products-item *ngFor='let product of products' [product]='product' class="search__item">
+         </app-products-item>
+      </div>
+   </div>
+</div>

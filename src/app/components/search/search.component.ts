@@ -1,4 +1,7 @@
+import { IProduct } from 'src/app/interfaces/product';
+import { IGetProductResponse } from './../../interfaces/product';
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  products: any[] = [];
+
+  constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
+    this.productService.getProducts()
+      .subscribe((res: IGetProductResponse) => {
+        this.products = res.products;
+      });
   }
 
 }

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     // Проверка массива на наличие продуктов в корзине
     // ! + products.length реакция? Будет ли обнулять после одновдения страницы 
     let products = JSON.stringify(localStorage.getItem('products'));
-    if (!products || products.length) {
+    if (!products || !products.length) {
       localStorage.setItem('products', JSON.stringify([]));
     }
   }

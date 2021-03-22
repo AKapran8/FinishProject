@@ -60,17 +60,16 @@ export class ProductsService {
 
   // Функция поиска товаров по имени
   searchProductFunction(searchProduct, products: IProduct) {
-
     this.searchProduct = searchProduct.toLowerCase();
-    alert(this.searchProduct);
+    // alert(this.searchProduct);
     // console.log(products);
     return this.getSearchProducts();
   }
 
   // Результаты поиска
   getSearchProducts(): Observable<IGetProductResponse> {
-    alert('Success');
-    alert(this.searchProduct);
+    // alert('Success');
+    console.log(this.searchProduct);
     return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=${this.searchProduct}`);
 
   }
