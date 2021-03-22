@@ -1,4 +1,3 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
@@ -27,6 +26,7 @@ export class ProductsService {
   // Сабджекты
   cartSubject = new Subject<any>();
   productCartSubject = new Subject<IProduct>();
+  searchSubject = new Subject<string>();
 
   constructor(private http: HttpClient) {
   }
@@ -61,18 +61,35 @@ export class ProductsService {
   // Функция поиска товаров по имени
   searchProductFunction(searchProduct, products: IProduct) {
     this.searchProduct = searchProduct.toLowerCase();
+    this.searchSubject.next(this.searchProduct);
     // alert(this.searchProduct);
     // console.log(products);
-    return this.getSearchProducts();
+    // alert('ASaa');
+    // console.log(this.products);
+    // this.products.forEach((element, index) => {
+    //   if (element.name.toLowerCase().includes(this.searchProduct))
+    //     // console.log(this.searchProduct);
+    //     // console.log(element.name.toLowerCase());
+    //     this.dublicate.push(element);
+    //   // console.log(this.dublicate);
+    //   this.searchSubject.next(this.dublicate);
+    // })
+
+
+    // return this.getSearchProducts();
   }
 
   // Результаты поиска
-  getSearchProducts(): Observable<IGetProductResponse> {
-    // alert('Success');
-    console.log(this.searchProduct);
-    return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=${this.searchProduct}`);
+  // getSearchProducts(): Observable<IGetProductResponse> {
+  //   // alert('Success');
+  //   // console.log(this.searchProduct);
+  //   return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=${this.searchProduct}`);
+  // }
 
-  }
+  // qqqqq(products: IProduct[], dublicate: IProduct[]) {
+  //   this.products = products;
+  //   this.dublicate = dublicate;
+  // }
 
 }
 
