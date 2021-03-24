@@ -17,14 +17,14 @@ export interface IProduct {
 }
 
 export interface IGetProductResponse {
-   page: string;
-   pages: number;
-   products: IProduct[];
+   page: string,
+   pages: number,
+   products: IProduct[]
 }
 
 export interface IGetProductAndCount {
-   products: IProduct;
-   count: number;
+   products: IProduct,
+   count: number
 }
 
 export interface IProductReviews {

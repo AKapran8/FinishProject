@@ -28,6 +28,8 @@ export class ProductByIdInformationComponent implements OnInit {
         this.counts.push(i);
       }
     });
+
+
   }
 
   buyProduct(product: IProduct): void {
