@@ -1,4 +1,4 @@
-import { IProduct } from 'src/app/interfaces/product';
+import { IGetProductResponse, IProduct } from 'src/app/interfaces/product';
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -15,6 +15,7 @@ export class AppBtnComponent implements OnInit {
   constructor(public productsService: ProductsService) { }
 
   ngOnInit(): void {
+
   }
 
   findProduct() {

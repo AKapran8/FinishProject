@@ -10,7 +10,8 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartItemComponent implements OnInit {
 
-  @Input('item') item: IGetProductAndCount;
+  @Input('product') product: IGetProductAndCount;
+  @Input('i') i: number;
   // selectedCount = 1;
   // counts: number[] = [];
 
@@ -21,7 +22,8 @@ export class CartItemComponent implements OnInit {
 
   }
 
-  removeProductFormCart() {
+  removeProductFormCart(i: number) {
+    console.log(i);
     // this.products.splice(i, 1);
     // console.log(i);
     // console.log(this.products[i]);

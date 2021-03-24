@@ -29,11 +29,12 @@
         </div>
         <div class="main__qty">
           <span>Qty:</span>
-          <select [(ngModel)]='selectedCount' class="main__select">
+          <app-select [product]='product'></app-select>
+          <!-- <select [(ngModel)]='selectedCount' class="main__select">
             <option *ngFor="let value of counts" [value]="value">
               {{value}}
             </option>
-          </select>
+          </select> -->
         </div>
         <div class="main__btn">
           <button (click)=buyProduct(product)>Add to card</button>

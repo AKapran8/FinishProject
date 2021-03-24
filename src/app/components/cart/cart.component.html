@@ -3,8 +3,8 @@
       <h1 class="cart__item-title">
          Shopping cart
       </h1>
-      <div class="cart__row" *ngFor='let item of products'>
-         <app-cart-item [item]='item'></app-cart-item>
+      <div class="cart__row" *ngFor='let product of products; let i = index;'>
+         <app-cart-item [product]='product' [i]='i'></app-cart-item>
       </div>
    </div>
 </div>

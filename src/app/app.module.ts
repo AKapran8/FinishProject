@@ -21,7 +21,7 @@ import { ProductItemComponent } from './components/product/products-item/product
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { ProductByIdInformationComponent } from './components/product/product-by-id-information/product-by-id-information.component';
 import { SearchComponent } from './components/search/search.component';
-import { SearchItemComponent } from './components/search-item/search-item.component';
+import { SelectComponent } from './components/select/select.component';
 
 
 
@@ -43,7 +43,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
     CartItemComponent,
     ProductByIdInformationComponent,
     SearchComponent,
-    SearchItemComponent,
+    SelectComponent,
   ],
   imports: [
     BrowserModule,

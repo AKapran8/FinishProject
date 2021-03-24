@@ -1,4 +1,4 @@
-.item {
+.product {
    padding: 20px 30px 50px 30px;
    border-bottom: 1px solid black;
    height: 100px;
@@ -19,6 +19,8 @@
    &__name {
       margin: 0 20px 0 0;
       font-size: 21px;
+      line-height: 27;
+      width: 270px;
    }
 
    &__price {

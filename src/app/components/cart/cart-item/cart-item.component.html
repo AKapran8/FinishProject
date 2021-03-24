@@ -1,21 +1,17 @@
-<div class="item">
-   <img src="https://nodejs-final-mysql.herokuapp.com{{item.products.image}}" alt="{{item.products.name}}"
-      class="item__img">
-   <div class="item__descr">
-      <p class="item__name">
-         {{item.products.name}}
+<div class="product">
+   <img src="https://nodejs-final-mysql.herokuapp.com{{product.products.image}}" alt="{{product.products.name}}"
+      class="product__img">
+   <div class="product__descr">
+      <p class="product__name">
+         {{product.products.name}}
       </p>
-      <p class="item__price">
-         {{item.products.price}} $
+      <p class="product__price">
+         {{product.products.price}} $
       </p>
       <!-- ! -->
-      <!-- <select [(ngModel)]='selectedCount' class="main__select">
-         <option *ngFor="let value of counts" [value]="value">
-            {{value}}
-         </option>
-      </select> -->
+      <app-select [product]='product'></app-select>
       <!-- ! -->
-      <div class="item__remove">
+      <div class="product__remove" (click)='removeProductFormCart(i)'>
          <i class="fas fa-trash"></i>
       </div>
    </div>

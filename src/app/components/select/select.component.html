@@ -1,0 +1,7 @@
+<div class="select">
+   <select [(ngModel)]='selectedCount' class="main__select">
+      <option *ngFor="let value of counts" [value]="value">
+         {{value}}
+      </option>
+   </select>
+</div>
