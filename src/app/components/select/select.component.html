@@ -1,5 +1,5 @@
 <div class="select">
-   <select [(ngModel)]='selectedCount' class="main__select">
+   <select [(ngModel)]='selectedCount' class="main__select" (change)='send(value)'>
       <option *ngFor="let value of counts" [value]="value">
          {{value}}
       </option>

@@ -9,10 +9,8 @@
          {{product.products.price}} $
       </p>
       <!-- ! -->
-      <app-select [product]='product'></app-select>
+      <app-select [product]='product' class="product__select"></app-select>
       <!-- ! -->
-      <div class="product__remove" (click)='removeProductFormCart(i)'>
-         <i class="fas fa-trash"></i>
-      </div>
+      <i class="fas fa-trash product__remove" (click)='removeProductFormCart(i)'></i>
    </div>
 </div>

@@ -1,6 +1,6 @@
 import { IProduct } from 'src/app/interfaces/product';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -13,6 +13,10 @@ export class SelectComponent implements OnInit {
   selectedCount = 1;
   counts: number[] = [];
   @Input('product') product: IProduct;
+  value: number;
+
+
+  @Output() sendSelectedCount = new EventEmitter<number>(); // !
 
   constructor(public productService: ProductsService, public http: HttpClient) { }
 
@@ -21,7 +25,17 @@ export class SelectComponent implements OnInit {
       this.counts.push(i);
     }
 
-
   }
+
+  // Чи потрібно тут параметром велью?
+  send(value: number) {
+    this.sendSelectedCount.emit(this.selectedCount); // !
+    console.log(this.selectedCount);
+  }
+
+  // ngOnChanges(changes: SimpleChange): void {
+  //   this.sendSelectedCount.emit(this.selectedCount); // !
+  //   alert(this.selectedCount);
+  // }
 
 }

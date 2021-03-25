@@ -43,13 +43,14 @@ export class ProductsService {
   }
 
   // Додаём продукт в корзину
+  // !
   buyProductAndCount(productAndCount: IGetProductAndCount): void {
     // Колечество тораров в карте повышаем и храним его локально
-    if (productAndCount.products) {
-      this.count++;
-      localStorage.setItem('count', this.count.toString());
-      this.cCount = localStorage.getItem('count');
-    }
+    // if (productAndCount.products) {
+    this.count += productAndCount.count;
+    localStorage.setItem('count', this.count.toString());
+    this.cCount = localStorage.getItem('count');
+    // }
     this.cartSubject.next({ products: productAndCount.products, count: this.count });
 
     // Хранение товаров с корзины локально
@@ -62,37 +63,18 @@ export class ProductsService {
   searchProductFunction(searchProduct, products: IProduct) {
     this.searchProduct = searchProduct.toLowerCase();
     this.searchSubject.next(this.searchProduct);
-    // alert(this.searchProduct);
-    // console.log(products);
-    // alert('ASaa');
-    // console.log(this.products);
-    // this.products.forEach((element, index) => {
-    //   if (element.name.toLowerCase().includes(this.searchProduct))
-    //     // console.log(this.searchProduct);
-    //     // console.log(element.name.toLowerCase());
-    //     this.dublicate.push(element);
-    //   // console.log(this.dublicate);
-    //   this.searchSubject.next(this.dublicate);
-    // })
-
-
-    // return this.getSearchProducts();
   }
+
   getSearchProducts(): Observable<IGetProductResponse> {
     return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=${this.searchProduct}`);
   }
 
-  // Результаты поиска
-  // getSearchProducts(): Observable<IGetProductResponse> {
-  //   // alert('Success');
-  //   // console.log(this.searchProduct);
-  //   return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=${this.searchProduct}`);
-  // }
+  removeFromLocalStorage(i: number) {
+    this.productAndCount = JSON.parse(localStorage.getItem('products'));
+    this.productAndCount.splice(i, 1);
 
-  // qqqqq(products: IProduct[], dublicate: IProduct[]) {
-  //   this.products = products;
-  //   this.dublicate = dublicate;
-  // }
+    localStorage.setItem('products', JSON.stringify(this.productAndCount));
+  }
 
 }
 
