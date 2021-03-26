@@ -1,6 +1,5 @@
 import { IGetProductAndCount } from './../../interfaces/product';
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -14,19 +13,23 @@ export class CartComponent implements OnInit {
 
   productsInCard: any[] = [];
 
-  totalCount: number;
-  totalPrice: number;
+  totalCount: number = 0;
+  totalPrice: number = 0;
 
 
 
-  constructor(public productService: ProductsService, public localStorageService: LocalStorageService) { }
+  constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.productService.cartSubject.subscribe(change => {
-      if (change && change.product) {
-        this.productsInCard.push('product');
-      }
+    this.productService.cartSubject.subscribe(cart => {
+      cart.forEach(item => {
+        console.log(item)
+        this.totalPrice += item.products.price * item.count;
+        this.totalCount += item.count;
+      });
+      this.totalPrice = +this.totalPrice.toFixed(2);
     })
+
 
     this.products = JSON.parse(localStorage.getItem('products'));
   }

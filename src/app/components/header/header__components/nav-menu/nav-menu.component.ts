@@ -9,17 +9,18 @@ import { ProductsService } from 'src/app/services/products.service';
 export class NavMenuComponent implements OnInit {
 
   count: number = 0;
-  cCount: any;
+  cCount: any = null;
   constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
     // функция для отображения количества товаров в корзине
-    this.productService.cartSubject.subscribe(change => {
-      if (change && change.count) {
-        this.cCount = change.count;
+    this.productService.cartSubject.subscribe(cart => {
+      this.cCount = 0;
+      if (cart?.length > 0) {
+        cart.forEach(item => {
+          this.cCount += item.count
+        });
       }
     })
-
   }
-
 }

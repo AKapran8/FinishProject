@@ -1,7 +1,7 @@
 import { element } from 'protractor';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { IProduct, IGetProductResponse, IGetProductAndCount } from '../interfaces/product';
 
 
@@ -29,9 +29,10 @@ export class ProductsService {
   searchProduct: string;
 
   // Сабджекты
-  cartSubject = new Subject<any>();
+  cartSubject = new BehaviorSubject<any>(null);
   productCartSubject = new Subject<IProduct>();
   searchSubject = new Subject<string>();
+
 
   constructor(private http: HttpClient) {
   }
@@ -53,7 +54,6 @@ export class ProductsService {
     this.count += productAndCount.count;
     localStorage.setItem('count', this.count.toString());
     this.cCount = +localStorage.getItem('count');
-    this.cartSubject.next({ products: productAndCount.products, count: this.count });
 
     // Хранение товаров с корзины локально
     if (JSON.parse(localStorage.getItem('products'))?.length >= 0) {
@@ -68,6 +68,8 @@ export class ProductsService {
     } else {
       this.productAndCount.push({ products: productAndCount.products, count: +productAndCount.count });
     }
+    this.cartSubject.next(this.productAndCount);
+
     localStorage.setItem('products', JSON.stringify(this.productAndCount));
     // this.countByProduct = productAndCount.count;
     // console.log(this.countByProduct);
