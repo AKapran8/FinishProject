@@ -1,3 +1,4 @@
+import { IGetProductAndCount } from './../../../interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -21,27 +22,42 @@ export class ProductByIdInformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params['id'];
-
     this.http.get(`https://nodejs-final-mysql.herokuapp.com/products/${this.id}`).subscribe(res => {
       this.product = res;
       for (let i = 1; i <= this.product.countInStock; i++) {
         this.counts.push(i);
       }
+      this.product = Object.assign({}, {
+        products: this.product,
+        count: this.selectedCount
+      })
+      console.log(this.product);
     });
+
 
 
   }
 
-  buyProduct(product: IProduct): void {
-    this.productService.buyProductAndCount({ products: product, count: Number(this.selectedCount) });
+  buyProduct(product: IGetProductAndCount): void {
+    console.log(product);
+    this.productService.buyProductAndCount(product);
 
     // console.log(`first ${this.selectedCount}`);
     this.takeSelectedCount(this.selectedCount);
   }
 
   takeSelectedCount(value: number) {
-    this.selectedCount = value;
+    console.log(value);
+    this.product.count = +value;
     // console.log(`take ${this.selectedCount}`);
   }
+
+
+  // buyProduct(product: IGetProductAndCount): void {
+  //   this.productService.buyProductAndCount({ products: product.products, count: Number(this.selectedCount) });
+
+  //   // console.log(`first ${this.selectedCount}`);
+  //   this.takeSelectedCount(this.selectedCount);
+  // }
 
 }

@@ -6,22 +6,22 @@
     <div class="main__row" *ngIf='product'>
       <div class="main__descr">
         <div class="main__image">
-          <img src="https://nodejs-final-mysql.herokuapp.com{{product.image}}" alt="{{product.name}}">
+          <img src="https://nodejs-final-mysql.herokuapp.com{{product.products.image}}" alt="{{product.name}}">
         </div>
         <div class="main__info">
-          <h3 class="main__name">{{product.name}}</h3>
+          <h3 class="main__name">{{product.products.name}}</h3>
           <p>
-            <span class="main__star main__star{{product.rating}}"></span>
-            <span class="main__review">{{product.numReviews}} reviews</span>
+            <span class="main__star main__star{{product.products.rating}}"></span>
+            <span class="main__review">{{product.products.numReviews}} reviews</span>
           </p>
-          <p class="main__price">Price: {{product.price}} $</p>
-          <p class="main__description">{{product.description}}</p>
+          <p class="main__price">Price: {{product.products.price}} $</p>
+          <p class="main__description">{{product.products.description}}</p>
         </div>
       </div>
       <div class="main__card">
         <div class="main__prices">
           <span>Price:</span>
-          <span>{{product.price}} $</span>
+          <span>{{product.products.price}} $</span>
         </div>
         <div class="main__status">
           <span>Status:</span>

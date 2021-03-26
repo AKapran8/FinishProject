@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
@@ -15,11 +16,15 @@ export class ProductsService {
 
   // Переменная в которой продукт и количество с селекта
   productAndCount: IGetProductAndCount[];
+
   // При выборе селекта количество
   countByProduct: number;
+
   // Для перехода по страницам товара
   pageNumber: number;
 
+
+  i: number;
   // Для компоненты search
   searchProduct: string;
 
@@ -43,7 +48,6 @@ export class ProductsService {
   }
 
   // Додаём продукт в корзину
-  // !
   buyProductAndCount(productAndCount: IGetProductAndCount): void {
     // Колечество тораров в карте повышаем и храним его локально
     if (productAndCount.products) {
@@ -55,8 +59,10 @@ export class ProductsService {
 
     // Хранение товаров с корзины локально
     this.productAndCount = JSON.parse(localStorage.getItem('products'));
-    this.productAndCount.push({ products: productAndCount.products, count: productAndCount.count });
+    this.productAndCount.push({ products: productAndCount.products, count: +productAndCount.count });
     localStorage.setItem('products', JSON.stringify(this.productAndCount));
+    // this.countByProduct = productAndCount.count;
+    // console.log(this.countByProduct);
   }
 
   // Функция поиска товаров по имени
@@ -69,12 +75,18 @@ export class ProductsService {
     return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=${this.searchProduct}`);
   }
 
+  // Удаление продукта с корзины
   removeFromLocalStorage(i: number) {
+    this.i = i;
+
     this.productAndCount = JSON.parse(localStorage.getItem('products'));
+    const index = this.productAndCount[i].count;
     this.productAndCount.splice(i, 1);
     localStorage.setItem('products', JSON.stringify(this.productAndCount));
+    // const aa = this.productAndCount[i].products.price;
+    // console.log(aa);
 
-    this.count--;
+    this.count -= index;
     localStorage.setItem('count', this.count.toString());
     this.cCount = localStorage.getItem('count');
   }

@@ -1,3 +1,4 @@
+import { IGetProductAndCount } from './../../interfaces/product';
 import { IProduct } from 'src/app/interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
@@ -10,18 +11,19 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class SelectComponent implements OnInit {
 
-  selectedCount = 1;
+  selectedCount: number;
   counts: number[] = [];
   value: number;
 
 
-  @Input('product') product: IProduct;
+  @Input('product') product: IGetProductAndCount;
   @Output() sendSelectedCount = new EventEmitter<number>(); // !
 
   constructor(public productService: ProductsService, public http: HttpClient) { }
 
   ngOnInit(): void {
-    for (let i = 1; i <= this.product.countInStock; i++) {
+    this.selectedCount = this.product.count;
+    for (let i = 1; i <= this.product.products.countInStock; i++) {
       this.counts.push(i);
     }
 
@@ -29,8 +31,9 @@ export class SelectComponent implements OnInit {
 
   // Чи потрібно тут параметром велью?
   send(value: number) {
-    this.sendSelectedCount.emit(this.selectedCount); // !
+    // this.sendSelectedCount.emit(this.selectedCount); // !
     // console.log(this.selectedCount);
+    this.product.count = this.selectedCount;
   }
 
 }
