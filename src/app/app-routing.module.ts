@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: CartComponent },
   { path: 'products/:id', component: ProductByIdInformationComponent },
-  { path: 'search', component: SearchComponent }
+  { path: 'search/:text', component: SearchComponent }
 ];
 
 @NgModule({

@@ -35,13 +35,13 @@ export class ProductByIdInformationComponent implements OnInit {
   buyProduct(product: IProduct): void {
     this.productService.buyProductAndCount({ products: product, count: Number(this.selectedCount) });
 
-    console.log(`first ${this.selectedCount}`);
+    // console.log(`first ${this.selectedCount}`);
     this.takeSelectedCount(this.selectedCount);
   }
 
   takeSelectedCount(value: number) {
     this.selectedCount = value;
-    console.log(`take ${this.selectedCount}`);
+    // console.log(`take ${this.selectedCount}`);
   }
 
 }

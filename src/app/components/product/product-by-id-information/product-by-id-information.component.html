@@ -30,12 +30,6 @@
         <div class="main__qty">
           <span>Qty:</span>
           <app-select [product]='product' (sendSelectedCount)='takeSelectedCount($event)'></app-select>
-          <!-- <select [(ngModel)]='selectedCount' class="main__select">
-            <option *ngFor="let value of counts" [value]="value">
-              {{value}}
-            </option>
-          </select> -->
-          <!-- (detectNewSkill)='recalcSkillsCount($event)' -->
         </div>
         <div class="main__btn">
           <button (click)=buyProduct(product)>Add to card</button>

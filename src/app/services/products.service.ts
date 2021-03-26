@@ -46,11 +46,11 @@ export class ProductsService {
   // !
   buyProductAndCount(productAndCount: IGetProductAndCount): void {
     // Колечество тораров в карте повышаем и храним его локально
-    // if (productAndCount.products) {
-    this.count += productAndCount.count;
-    localStorage.setItem('count', this.count.toString());
-    this.cCount = localStorage.getItem('count');
-    // }
+    if (productAndCount.products) {
+      this.count += productAndCount.count;
+      localStorage.setItem('count', this.count.toString());
+      this.cCount = localStorage.getItem('count');
+    }
     this.cartSubject.next({ products: productAndCount.products, count: this.count });
 
     // Хранение товаров с корзины локально
@@ -72,8 +72,11 @@ export class ProductsService {
   removeFromLocalStorage(i: number) {
     this.productAndCount = JSON.parse(localStorage.getItem('products'));
     this.productAndCount.splice(i, 1);
-
     localStorage.setItem('products', JSON.stringify(this.productAndCount));
+
+    this.count--;
+    localStorage.setItem('count', this.count.toString());
+    this.cCount = localStorage.getItem('count');
   }
 
 }

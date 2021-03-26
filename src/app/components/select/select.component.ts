@@ -12,10 +12,10 @@ export class SelectComponent implements OnInit {
 
   selectedCount = 1;
   counts: number[] = [];
-  @Input('product') product: IProduct;
   value: number;
 
 
+  @Input('product') product: IProduct;
   @Output() sendSelectedCount = new EventEmitter<number>(); // !
 
   constructor(public productService: ProductsService, public http: HttpClient) { }
@@ -30,12 +30,7 @@ export class SelectComponent implements OnInit {
   // Чи потрібно тут параметром велью?
   send(value: number) {
     this.sendSelectedCount.emit(this.selectedCount); // !
-    console.log(this.selectedCount);
+    // console.log(this.selectedCount);
   }
-
-  // ngOnChanges(changes: SimpleChange): void {
-  //   this.sendSelectedCount.emit(this.selectedCount); // !
-  //   alert(this.selectedCount);
-  // }
 
 }
