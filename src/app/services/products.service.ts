@@ -50,16 +50,24 @@ export class ProductsService {
   // Додаём продукт в корзину
   buyProductAndCount(productAndCount: IGetProductAndCount): void {
     // Колечество тораров в карте повышаем и храним его локально
-    if (productAndCount.products) {
-      this.count += productAndCount.count;
-      localStorage.setItem('count', this.count.toString());
-      this.cCount = localStorage.getItem('count');
-    }
+    this.count += productAndCount.count;
+    localStorage.setItem('count', this.count.toString());
+    this.cCount = +localStorage.getItem('count');
     this.cartSubject.next({ products: productAndCount.products, count: this.count });
 
     // Хранение товаров с корзины локально
-    this.productAndCount = JSON.parse(localStorage.getItem('products'));
-    this.productAndCount.push({ products: productAndCount.products, count: +productAndCount.count });
+    if (JSON.parse(localStorage.getItem('products'))?.length >= 0) {
+      this.productAndCount = JSON.parse(localStorage.getItem('products'))
+    } else {
+      this.productAndCount = []
+    }
+    console.log(productAndCount);
+    const candidate = this.productAndCount.find(product => product.products._id === productAndCount.products._id)
+    if (candidate) {
+      candidate.count += productAndCount.count;
+    } else {
+      this.productAndCount.push({ products: productAndCount.products, count: +productAndCount.count });
+    }
     localStorage.setItem('products', JSON.stringify(this.productAndCount));
     // this.countByProduct = productAndCount.count;
     // console.log(this.countByProduct);
@@ -88,7 +96,7 @@ export class ProductsService {
 
     this.count -= index;
     localStorage.setItem('count', this.count.toString());
-    this.cCount = localStorage.getItem('count');
+    this.cCount = +localStorage.getItem('count');
   }
 
 }

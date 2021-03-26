@@ -14,6 +14,9 @@ export class CartComponent implements OnInit {
 
   productsInCard: any[] = [];
 
+  totalCount: number;
+  totalPrice: number;
+
 
 
   constructor(public productService: ProductsService, public localStorageService: LocalStorageService) { }

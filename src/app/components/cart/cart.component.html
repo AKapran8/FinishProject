@@ -1,10 +1,17 @@
 <div class="cart">
    <div class="container">
-      <h1 class="cart__item-title">
-         Shopping cart
-      </h1>
-      <div class="cart__row" *ngFor='let product of products; let i = index;'>
-         <app-cart-item [product]='product' [i]='i'></app-cart-item>
+      <div>
+         <h1 class="cart__item-title">
+            Shopping cart
+         </h1>
+         <div class="cart__row" *ngFor='let product of products; let i = index;'>
+            <app-cart-item [product]='product' [i]='i'></app-cart-item>
+         </div>
       </div>
+      <div class="total">
+         <h1>Total Count: </h1>
+         <h1>Total Price: $</h1>
+      </div>
+
    </div>
 </div>
