@@ -22,16 +22,17 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.cartSubject.subscribe(cart => {
-      cart.forEach(item => {
-        console.log(item)
-        this.totalPrice += item.products.price * item.count;
-        this.totalCount += item.count;
-      });
-      this.totalPrice = +this.totalPrice.toFixed(2);
+      if (cart?.length > 0) {
+        cart.forEach(item => {
+          console.log(item)
+          this.totalPrice += item.products.price * item.count;
+          this.totalCount += item.count;
+        });
+        this.totalPrice = +this.totalPrice.toFixed(2);
+      }
     })
-
-
     this.products = JSON.parse(localStorage.getItem('products'));
   }
+
 
 }
