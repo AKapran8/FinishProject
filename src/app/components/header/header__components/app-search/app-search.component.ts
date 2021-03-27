@@ -10,6 +10,7 @@ export class AppSearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

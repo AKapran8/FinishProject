@@ -1,7 +1,6 @@
 import { IGetProductAndCount } from './../../interfaces/product';
-import { IProduct } from 'src/app/interfaces/product';
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -15,13 +14,15 @@ export class SelectComponent implements OnInit {
   counts: number[] = [];
   value: number;
 
-
+  // Прдтягиваем с родительского элем продукт
   @Input('product') product: IGetProductAndCount;
+  // Передаём в родительскую компоненту
   @Output() sendSelectedCount = new EventEmitter<number>(); // !
 
   constructor(public productService: ProductsService, public http: HttpClient) { }
 
   ngOnInit(): void {
+    // Вывод к-во товаров в селекте
     this.selectedCount = this.product.count;
     for (let i = 1; i <= this.product.products.countInStock; i++) {
       this.counts.push(i);
@@ -29,10 +30,8 @@ export class SelectComponent implements OnInit {
 
   }
 
-  // Чи потрібно тут параметром велью?
+  // !Нужен ли параметр велью?
   send(value: number) {
-    // this.sendSelectedCount.emit(this.selectedCount); // !
-    // console.log(this.selectedCount);
     this.product.count = +this.selectedCount;
   }
 

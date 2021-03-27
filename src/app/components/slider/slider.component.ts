@@ -17,6 +17,7 @@ export class SliderComponent implements OnInit {
   constructor(public http: HttpClient, public router: Router, public topProductService: TopProsuctsService) { }
 
   ngOnInit(): void {
+    // Подключение слайдера
     this.topProductService.getProducts()
       .subscribe((res: IProduct[]) => {
         // console.log(res);

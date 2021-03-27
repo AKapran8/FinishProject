@@ -2,7 +2,6 @@ import { IGetProductAndCount } from './../../../interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -21,6 +20,7 @@ export class ProductByIdInformationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Открываем описание товара
     this.id = this.activateRoute.snapshot.params['id'];
     this.http.get(`https://nodejs-final-mysql.herokuapp.com/products/${this.id}`).subscribe(res => {
       this.product = res;
@@ -34,30 +34,20 @@ export class ProductByIdInformationComponent implements OnInit {
       console.log(this.product);
     });
 
-
-
   }
 
+  // Передача товаров в корзину
   buyProduct(product: IGetProductAndCount): void {
     console.log(product);
     this.productService.buyProductAndCount(product);
-
-    // console.log(`first ${this.selectedCount}`);
+    // Активируем функцию
     this.takeSelectedCount(this.selectedCount);
   }
 
+  // Принимаем выбраное к-во товара
   takeSelectedCount(value: number) {
     console.log(value);
     this.product.count = +value;
-    // console.log(`take ${this.selectedCount}`);
   }
-
-
-  // buyProduct(product: IGetProductAndCount): void {
-  //   this.productService.buyProductAndCount({ products: product.products, count: Number(this.selectedCount) });
-
-  //   // console.log(`first ${this.selectedCount}`);
-  //   this.takeSelectedCount(this.selectedCount);
-  // }
 
 }

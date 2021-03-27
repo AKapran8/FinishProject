@@ -15,6 +15,7 @@ export class ProductItemComponent implements OnInit {
   id: string;
   products: any[] = [];
 
+  // Принимаю с продукт компоненты продукт
   @Input('product') product: IProduct;
 
   constructor(public productService: ProductsService, public http: HttpClient, public router: Router) {
@@ -24,6 +25,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Переход на описание продукта
   goToProd(id: string): void {
     this.router.navigate([`products/${id}`]);
   }

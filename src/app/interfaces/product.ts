@@ -16,17 +16,20 @@ export interface IProduct {
    reviews: IProductReviews
 }
 
+// Для перехода по страницаъ
 export interface IGetProductResponse {
    page: string,
    pages: number,
    products: IProduct[]
 }
 
+// Товар и к-во товара
 export interface IGetProductAndCount {
    products: IProduct,
    count: number
 }
 
+// Ревьюшки
 export interface IProductReviews {
    _id: string,
    name: string,

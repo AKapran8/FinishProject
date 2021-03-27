@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class AppBtnComponent implements OnInit {
 
+  // Подтягиваю с интупа значение
   @Input('searchProductBtn') searchProduct: string;
   products: IProduct;
   text: string;
@@ -20,12 +21,10 @@ export class AppBtnComponent implements OnInit {
 
   }
 
+  // Поиск товара по инпуте
   findProduct(text: string) {
-    // alert(`Hello ${this.searchProduct}`);
-
     this.productsService.searchProductFunction(this.searchProduct, this.products);
     this.router.navigate([`search/${text}`]);
-
   }
 
 }

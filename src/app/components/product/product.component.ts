@@ -15,12 +15,14 @@ export class ProductComponent implements OnInit {
   constructor(public productService: ProductsService) { }
 
   ngOnInit() {
+    // Подтягиваю товары
     this.productService.getProducts()
       .subscribe((res: IGetProductResponse) => {
         this.products = res.products;
       });
   }
 
+  // Переход по страницах
   pageNumber(value: number) {
     this.productService.goToPage(value).subscribe((newProducts: IGetProductResponse) => {
       this.products = newProducts.products;
