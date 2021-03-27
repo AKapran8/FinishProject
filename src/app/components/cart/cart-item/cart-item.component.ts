@@ -26,10 +26,9 @@ export class CartItemComponent implements OnInit {
   removeProductFormCart(i: number) {
     console.log(i);
     // this.i = i;
-
     this.productService.removeFromLocalStorage(i);
 
-  }
 
+  }
 
 }

@@ -27,6 +27,7 @@ export class ProductByIdInformationComponent implements OnInit {
       for (let i = 1; i <= this.product.countInStock; i++) {
         this.counts.push(i);
       }
+      // Кодга пустой масив первое значение пушим
       this.product = Object.assign({}, {
         products: this.product,
         count: this.selectedCount
