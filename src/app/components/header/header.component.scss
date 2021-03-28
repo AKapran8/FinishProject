@@ -26,4 +26,13 @@
       font-size: 32px;
       margin-right: 35px;
    }
+
+   .shop {
+      font-family: 'Dancing Script', cursive;
+
+      &:hover {
+         color:rgb(3, 160, 3);
+         transition: 0.3s;
+      }
+   }
 }

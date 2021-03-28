@@ -1,5 +1,4 @@
 .cart {
-   
    .container {
       max-width: 1200px;
       width: 90%;
@@ -17,20 +16,48 @@
    }
 
    &__total {
-      width: 28%;
+      width: 35%;
       padding: 30px;
-      background-color: rgba(0, 195, 255, 0.5);
-      // min-height: 100px;
-      max-height: 150px;
+      max-height: 250px;
+   }
+
+   &__descr {
+      padding: 10px;
+      border: 1px solid rgb(102, 102, 102);
 
       h2 {
          font-weight: 700;
          font-size: 20px;
+         text-transform: uppercase;
+         color: rgb(102, 102, 102);
+      }
+
+      p {
+         color: rgb(102, 102, 102);
+         font-size: 15px;
+      }
+   }
+
+   &__checkout {
+      padding: 10px;
+      border-bottom: 1px solid rgb(102, 102, 102);
+      border-right: 1px solid rgb(102, 102, 102);
+      border-left: 1px solid rgb(102, 102, 102);
+
+      button {
+         display: block;
+         bottom: 0 auto;
+         background-color: black;
+         color: white;
+         padding: 10px 30px;
+         text-transform: uppercase;
 
          &:hover {
-            color: rgb(24, 18, 18);
+            background-color: white;
+            color: black;
             transition: 0.3s;
          }
       }
    }
+
 }

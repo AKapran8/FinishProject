@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -44,7 +43,7 @@ export class ProductsService {
     return this.getProducts();
   }
 
-  // Одерживаем продукты 
+  // Одерживаем продукты
   getProducts(): Observable<IGetProductResponse> {
     return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=&pageNumber=${this.pageNumber}`);
   }
@@ -60,13 +59,13 @@ export class ProductsService {
     // Если есть товары, то их сохранять
     // В ином случае создавать пустой массив
     if (JSON.parse(localStorage.getItem('products'))?.length >= 0) {
-      this.productAndCount = JSON.parse(localStorage.getItem('products'))
+      this.productAndCount = JSON.parse(localStorage.getItem('products'));
     } else {
-      this.productAndCount = []
+      this.productAndCount = [];
     }
     // !console.log(productAndCount);
     // Если данный товар есть в корзине, то повышаем эго каунт в попереднем элементе масссива
-    const candidate = this.productAndCount.find(product => product.products._id === productAndCount.products._id)
+    const candidate = this.productAndCount.find(product => product.products._id === productAndCount.products._id);
     if (candidate) {
       candidate.count += productAndCount.count;
     } else {
@@ -102,6 +101,33 @@ export class ProductsService {
     this.count -= index;
     localStorage.setItem('count', this.count.toString());
     this.cCount = +localStorage.getItem('count');
+  }
+
+  editCardItem(id, product) {
+    let products = JSON.parse(localStorage.getItem('products'));
+
+    console.log(id, product);
+    console.log(products);
+    let prodToChangeIndex = products.findIndex(prod => prod.products._id === id);
+
+    products[prodToChangeIndex].count = product.count;
+    localStorage.setItem('products', JSON.stringify(products));
+  }
+
+  updateCardTotalInfo() {
+    const products = JSON.parse(localStorage.getItem('products'));
+    if (products) {
+      let totalCount = 0;
+      let totalPrice = 0;
+      products.forEach((product) => {
+
+        totalCount += +product.count;
+        totalPrice += +product.products.price * product.count;
+      });
+      return { totalCount, totalPrice };
+
+    }
+
   }
 
 }

@@ -1,5 +1,5 @@
 import { IGetProductAndCount } from './../../../interfaces/product';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
 
@@ -10,11 +10,13 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartItemComponent implements OnInit {
 
+  newSelectCount: number;
   @Input('product') product: IGetProductAndCount;
   @Input('i') i: number;
-  // selectedCount = 1;
-  // counts: number[] = [];
+  // @Output() ind = new EventEmitter<number>();
+  // id: string;
 
+  @Output() newCount = new EventEmitter<number>();
 
   constructor(public productService: ProductsService) { }
 
@@ -22,13 +24,18 @@ export class CartItemComponent implements OnInit {
 
   }
 
-  // removeProductFormCart(id: string) {
   removeProductFormCart(i: number) {
     console.log(i);
-    // this.i = i;
     this.productService.removeFromLocalStorage(i);
-
-
   }
 
+  selectToCartItem(value: number) {
+    // this.id = this.product.products._id;
+    // console.log(this.id);
+    console.log(value, this.product);
+
+    this.productService.editCardItem(this.product.products._id, this.product);
+    this.newSelectCount = value;
+    this.newCount.emit(this.newSelectCount);
+  }
 }

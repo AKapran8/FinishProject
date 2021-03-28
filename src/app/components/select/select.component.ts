@@ -33,6 +33,7 @@ export class SelectComponent implements OnInit {
   // !Нужен ли параметр велью?
   send(value: number) {
     this.product.count = +this.selectedCount;
+    this.sendSelectedCount.emit(this.product.count);
   }
 
 }

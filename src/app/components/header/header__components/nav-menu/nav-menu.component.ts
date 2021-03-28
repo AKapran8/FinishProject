@@ -11,7 +11,7 @@ export class NavMenuComponent implements OnInit {
   count: number = 0;
 
   // Если нету товаров в козине что б не было значения
-  cCount: any = null;
+  cCount: number = 0;
 
   constructor(public productService: ProductsService) { }
 
@@ -27,7 +27,9 @@ export class NavMenuComponent implements OnInit {
       }
 
     })
+    // const { totalCount, totalPrice } = this.productService.updateCardTotalInfo();
 
+    // this.cCount = totalCount;
   }
 
 

@@ -5,13 +5,17 @@
             Shopping cart
          </h1>
          <div class="cart__row" *ngFor='let product of products; let i = index;'>
-            <app-cart-item [product]='product' [i]='i'></app-cart-item>
+            <app-cart-item [product]='product' [i]='i' (newCount)='countAndCart($event)'></app-cart-item>
          </div>
       </div>
       <div class="cart__total">
-         <h2>Total Count: {{totalCount}}</h2>
-         <h2>Total Price: {{totalPrice}} $</h2>
+         <div class="cart__descr">
+            <h2>Subtotal ({{totalCount}}) items</h2>
+            <p>${{totalPrice}}</p>
+         </div>
+         <div class="cart__checkout">
+            <button>proceed to checkout</button>
+         </div>
       </div>
-
    </div>
 </div>

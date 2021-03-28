@@ -9,12 +9,9 @@
          {{product.products.price}} $
       </p>
       <!-- ! -->
-      <app-select [product]='product' class="product__select"></app-select>
+      <app-select [product]='product' class="product__select" (sendSelectedCount)='selectToCartItem($event)'>
+      </app-select>
       <!-- ! -->
       <i class="fas fa-trash product__remove" (click)='removeProductFormCart(i)'></i>
    </div>
 </div>
-
-
-
-<!-- (click)=ngOnDestroy(i) -->
