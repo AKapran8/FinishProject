@@ -1,17 +1,20 @@
-<div class="product" *ngIf='product.products'>
-   <img src="https://nodejs-final-mysql.herokuapp.com{{product.products.image}}" alt="{{product.products.name}}"
-      class="product__img">
-   <div class="product__descr">
-      <p class="product__name">
-         {{product.products.name}}
-      </p>
-      <p class="product__price">
-         {{product.products.price}} $
-      </p>
-      <!-- ! -->
-      <app-select [product]='product' class="product__select" (sendSelectedCount)='selectToCartItem($event)'>
-      </app-select>
-      <!-- ! -->
-      <i class="fas fa-trash product__remove" (click)='removeProductFormCart(i)'></i>
+<div>
+   <div class="product" *ngIf='product.products'>
+      <img src="https://nodejs-final-mysql.herokuapp.com{{product.products.image}}" alt="{{product.products.name}}"
+         class="product__img">
+      <div class="product__descr">
+         <p class="product__name">
+            {{product.products.name}}
+         </p>
+         <p class="product__price">
+            {{product.products.price}} $
+         </p>
+         <!-- ! -->
+         <app-select [product]='product' class="product__select" (sendSelectedCount)='selectToCartItem($event)'>
+         </app-select>
+         <!-- ! -->
+         <i class="fas fa-trash product__remove" (click)='removeProductFormCart(i)'></i>
+         {{ product.count }}
+      </div>
    </div>
 </div>

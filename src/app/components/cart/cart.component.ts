@@ -54,7 +54,7 @@ export class CartComponent implements OnInit {
   countAndCart(value: number): void {
     const { totalCount, totalPrice } = this.productService.updateCardTotalInfo();
     this.totalCount = +totalCount;
-    this.totalPrice = +totalPrice;
+    this.totalPrice = Number(totalPrice);
   }
 
 }
