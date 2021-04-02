@@ -9,11 +9,12 @@
    &__row {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-start;
    }
 
    &__item {
-      flex: 0 1 23%;
-      margin: 0 5px;
+      flex: 0 1 25%;
+      // margin: 0 5px;
       padding: 0 5px;
    }
 
