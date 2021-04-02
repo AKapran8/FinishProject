@@ -3,7 +3,14 @@
     <button class="main__back" routerLink=''>
       Go back
     </button>
+    <!-- !loader -->
+    <div *ngIf='loaderservice.isLoading | async' class="loader-container">
+      <!-- <mat-progress-bar mode='indeterminate'></mat-progress-bar> -->
+      <mat-spinner style="top: 30%; left: 50%"></mat-spinner>
+    </div>
+    <!-- !loader -->
     <div class="main__row" *ngIf='product'>
+
       <div class="main__descr">
         <div class="main__image">
           <img src="https://nodejs-final-mysql.herokuapp.com{{product.products.image}}" alt="{{product.name}}">

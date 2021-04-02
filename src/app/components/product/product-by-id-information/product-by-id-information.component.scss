@@ -1,11 +1,14 @@
-.container {
-   width: 90%; 
-   max-width: 1200px;
-   margin: 0 auto;
-}
+
 
 .main {
 
+   .container {
+      width: 90%; 
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+   }
+   
    &__select {
       background-color: rgb(238, 232, 232);
       padding: 10px 20px;
@@ -176,5 +179,18 @@
    }
    &__star5:before {
       content: '★★★★★';
+   }
+}
+
+
+.loader-container {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   opacity: 0.8;
+   z-index: 99;
+
+   &::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+       stroke: rgb(13, 99, 212);
    }
 }

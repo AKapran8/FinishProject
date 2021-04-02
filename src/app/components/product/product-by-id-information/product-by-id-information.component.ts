@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-product-by-id-information',
@@ -16,7 +17,7 @@ export class ProductByIdInformationComponent implements OnInit {
   selectedCount: number = 1;
   counts: number[] = [];
 
-  constructor(public productService: ProductsService, private activateRoute: ActivatedRoute, public http: HttpClient) {
+  constructor(public productService: ProductsService, private activateRoute: ActivatedRoute, public http: HttpClient, public loaderservice: LoaderService) {
   }
 
   ngOnInit(): void {
