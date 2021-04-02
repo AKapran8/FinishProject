@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { IGetProductResponse, IProduct } from 'src/app/interfaces/product';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class AppBtnComponent implements OnInit {
   products: IProduct;
   text: string;
 
+  @Output() zeroing = new EventEmitter<string>();
   constructor(public productsService: ProductsService, public router: Router) { }
 
   ngOnInit(): void {
@@ -25,6 +26,9 @@ export class AppBtnComponent implements OnInit {
   findProduct(text: string) {
     this.productsService.searchProductFunction(this.searchProduct, this.products);
     this.router.navigate([`search/${text}`]);
+    // console.log(this.searchProduct);
+    this.zeroing.emit(this.searchProduct);
+
   }
 
 }

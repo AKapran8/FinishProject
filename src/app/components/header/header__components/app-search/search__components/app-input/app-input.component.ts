@@ -16,4 +16,8 @@ export class AppInputComponent implements OnInit {
 
   }
 
+  zeroing(searchProduct: string) {
+    this.searchProduct = '';
+  }
+
 }
