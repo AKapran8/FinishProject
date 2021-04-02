@@ -1,4 +1,10 @@
 <div class="product">
+   <!-- !loader -->
+   <div *ngIf='loaderservice.isLoading | async' class="loader-container">
+      <!-- <mat-progress-bar mode='indeterminate'></mat-progress-bar> -->
+      <mat-spinner style="top: 0%; left: 35%"></mat-spinner>
+   </div>
+   <!-- !loader -->
    <div class="product__item" (click)='goToProd(product._id)'>
       <img src="https://nodejs-final-mysql.herokuapp.com{{product.image}}" alt="Img" class="product__img"
          *ngIf='product'>
@@ -11,5 +17,4 @@
       </div>
       <h4 class="product__price">$ {{product.price}}</h4>
    </div>
-
 </div>

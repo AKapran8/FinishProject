@@ -6,6 +6,12 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
          </ol>
+         <!-- !loader -->
+         <div *ngIf='loaderservice.isLoading | async' class="loader-container">
+            <!-- <mat-progress-bar mode='indeterminate'></mat-progress-bar> -->
+            <mat-spinner style="top: 30%; left: 50%"></mat-spinner>
+         </div>
+         <!-- !loader -->
          <div class="carousel-inner w-100">
             <div class="carousel-item" [ngClass]='{active: i===0}' *ngFor='let product of items; let i = index'
                (click)='goToProd(product._id)'>

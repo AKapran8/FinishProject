@@ -1,12 +1,12 @@
 <div class="product">
    <div class="container">
       <div class="product__title">Latest products</div>
-
+      <!-- !loader -->
       <div *ngIf='loaderservice.isLoading | async' class="loader-container">
          <!-- <mat-progress-bar mode='indeterminate'></mat-progress-bar> -->
-         <mat-spinner style="top: 50%; left: 50%"></mat-spinner>
+         <mat-spinner style="top: 0%; left: 35%"></mat-spinner>
       </div>
-
+      <!-- !loader -->
       <div class="product__row">
          <app-products-item *ngFor='let product of products' [product]='product' class="product__item">
          </app-products-item>

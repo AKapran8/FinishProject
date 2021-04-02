@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,7 @@ export class SliderComponent implements OnInit {
   items: IProduct[] = [];
   id: string;
 
-  constructor(public http: HttpClient, public router: Router, public topProductService: TopProsuctsService) { }
+  constructor(public http: HttpClient, public router: Router, public topProductService: TopProsuctsService, public loaderservice: LoaderService) { }
 
   ngOnInit(): void {
     // Подключение слайдера
