@@ -1,0 +1,47 @@
+.login {
+   width: 300px;
+   margin: 0 auto;
+
+   &__title {
+      font-size: 30px;
+      text-transform: uppercase;
+   }
+
+   &__name, &__password {
+      margin: 20px 0;
+      input {
+         border: 1px solid black;
+         padding: 10px 10px;
+         border-radius: 10px;
+      }
+   }
+
+   &__btn {
+      button {
+         padding: 10px;
+         background-color: black;
+         color: white;
+         border-radius: 10px;
+         margin-bottom: 10px;
+
+         
+
+         &:hover {
+            background-color: white;
+            color: black;
+            transition: 0.3s;
+         }
+      }
+   }
+
+   p {
+      a {
+         color:rgb(144, 6, 144);
+
+         &:hover {
+            color:rgb(0, 99, 228);
+            text-decoration: underline;
+         }
+      }
+   }
+}

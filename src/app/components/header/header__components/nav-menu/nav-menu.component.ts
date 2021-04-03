@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -9,11 +10,12 @@ import { ProductsService } from 'src/app/services/products.service';
 export class NavMenuComponent implements OnInit {
 
   count: number = 0;
-
-  // Если нету товаров в козине что б не было значения
   cCount: number = 0;
 
-  constructor(public productService: ProductsService) { }
+  loginValue: string = 'sign up';
+  aaa: string;
+
+  constructor(public productService: ProductsService, public loginService: LoginService) { }
 
   ngOnInit(): void {
     // функция для отображения общего количества товаров в корзине
@@ -25,12 +27,13 @@ export class NavMenuComponent implements OnInit {
           this.cCount += item.count
         });
       }
-
     })
-    // const { totalCount, totalPrice } = this.productService.updateCardTotalInfo();
 
-    // this.cCount = totalCount;
+    this.loginService.userNameSubject.subscribe(res => {
+      if (res) {
+        this.loginValue = 'admin';
+      }
+    });
   }
-
 
 }

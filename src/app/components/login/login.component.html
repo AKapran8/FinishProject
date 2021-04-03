@@ -1,16 +1,13 @@
 <div class="login">
-   <form>
-
-      <label>
-         Type your name
-         <input type="text" class="login__name">
-      </label>
-      <br>
-      <label>
-         Type your password
-         <input type="password" class="login__password">
-      </label>
-
-      <button (click)='logIn()'>Log in</button>
-   </form>
+   <h1 class="login__title">Sign up</h1>
+   <div class="login__name">
+      <input type="email" placeholder="Enter name" [(ngModel)]='email'>
+   </div>
+   <div class="login__password">
+      <input type="password" placeholder="Enter password" [(ngModel)]='password'>
+   </div>
+   <div class="login__btn">
+      <button (click)='logIn()'>sign up</button>
+   </div>
+   <p>New Customer? <a routerLink='/'>Register</a></p>
 </div>
