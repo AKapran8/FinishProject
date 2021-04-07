@@ -15,13 +15,6 @@ export class LoginService {
   newUserStatus() {
     this.value = localStorage.getItem('user');
     this.userNameSubject.next(this.value);
-    // if (value) {
-    //   let newValue = 'sign up';
 
-    //   newValue = value;
-
-    //   return newValue;
-
-    // }
   }
 }
