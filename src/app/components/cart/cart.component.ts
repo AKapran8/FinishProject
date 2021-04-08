@@ -41,9 +41,9 @@ export class CartComponent implements OnInit {
         const { totalCount, totalPrice } = this.productService.updateCardTotalInfo();
         this.totalCount = +totalCount;
         console.log(typeof totalPrice)
-        this.totalPrice = totalPrice
-
+        this.totalPrice = parseFloat(totalPrice.toFixed(2))
       }
+                                       
     })
 
   }
