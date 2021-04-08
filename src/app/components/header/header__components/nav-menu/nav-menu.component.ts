@@ -34,6 +34,14 @@ export class NavMenuComponent implements OnInit {
         this.loginValue = 'admin';
       }
     });
+
+    this.productService.subject.subscribe(res => {
+      if (res) this.cCount -= res[1]
+    })
+    this.productService.subjectTwo.subscribe(res => {
+      if (res) this.cCount = res
+    })
+
   }
 
 }

@@ -4,19 +4,18 @@
       <!-- !loader -->
       <div *ngIf='loaderservice.isLoading | async' class="loader-container">
          <!-- <mat-progress-bar mode='indeterminate'></mat-progress-bar> -->
-         <mat-spinner style="top: 0%; left: 30%"></mat-spinner>
+         <mat-spinner style="top: 0%; left: 35%"></mat-spinner>
       </div>
       <!-- !loader -->
-      <div>
-         <div class="product__row">
-            <app-products-item *ngFor='let product of products' [product]='product' class="product__item">
-            </app-products-item>
-         </div>
-
-         <div class="product__btn">
-            <button (click)='pageNumber(1)'>1</button>
-            <button (click)='pageNumber(2)'>2</button>
-         </div>
+      <div class="product__row">
+         <app-products-item *ngFor='let product of products' [product]='product' class="product__item">
+         </app-products-item>
       </div>
+
+      <div class="product__btn">
+         <button (click)='pageNumber(1)'>1</button>
+         <button (click)='pageNumber(2)'>2</button>
+      </div>
+
    </div>
 </div>

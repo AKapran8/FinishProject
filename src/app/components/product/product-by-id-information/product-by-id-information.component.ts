@@ -33,12 +33,14 @@ export class ProductByIdInformationComponent implements OnInit {
         products: this.product,
         count: this.selectedCount
       })
+      // console.log(this.product);
     });
 
   }
 
   // Передача товаров в корзину
   buyProduct(product: IGetProductAndCount): void {
+    // console.log(product);
     this.productService.buyProductAndCount(product);
     // Активируем функцию
     this.takeSelectedCount(this.selectedCount);
@@ -46,6 +48,7 @@ export class ProductByIdInformationComponent implements OnInit {
 
   // Принимаем выбраное к-во товара
   takeSelectedCount(value: number) {
+    // console.log(value);
     this.product.count = +value;
   }
 

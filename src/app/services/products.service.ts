@@ -27,12 +27,15 @@ export class ProductsService {
 
   // Для компоненты search
   searchProduct: string;
+  q: number;
 
   // Сабджекты
   cartSubject = new BehaviorSubject<any>(null);
   productCartSubject = new Subject<IProduct>();
   searchSubject = new Subject<string>();
-
+  // !
+  subject = new Subject<any>();
+  subjectTwo = new Subject<any>();
 
   constructor(private http: HttpClient) {
   }
@@ -95,12 +98,21 @@ export class ProductsService {
     this.productAndCount = JSON.parse(localStorage.getItem('products'));
     const index = this.productAndCount[i].count;
     this.productAndCount.splice(i, 1);
-    localStorage.setItem('products', JSON.stringify(this.productAndCount));
 
-    // Удаляем с корзины к-во удалённого товара
     this.count -= index;
-    localStorage.setItem('count', this.count.toString());
+
+    let newArr = this.productAndCount
+    localStorage.setItem('products', JSON.stringify(newArr));
+
+    let c = this.count
+    localStorage.setItem('count', c.toString());
     this.cCount = +localStorage.getItem('count');
+
+    let arr = []
+    arr.push(newArr)
+    arr.push(index)
+    this.subject.next(arr)
+
   }
 
   editCardItem(id, product) {
@@ -124,8 +136,10 @@ export class ProductsService {
         totalCount += +product.count;
         totalPrice += +product.products.price * product.count;
       });
-      return { totalCount, totalPrice };
 
+      localStorage.setItem('count', totalCount.toString())
+      this.subjectTwo.next(totalCount)
+      return { totalCount, totalPrice };
     }
 
   }
