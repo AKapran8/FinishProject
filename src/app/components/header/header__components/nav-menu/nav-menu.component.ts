@@ -12,7 +12,7 @@ export class NavMenuComponent implements OnInit {
   count: number = 0;
   cCount: number = 0;
 
-  loginValue: string = 'sign up';
+  loginValue: string = localStorage.getItem('user') || 'sign up';
   aaa: string;
 
   constructor(public productService: ProductsService, public loginService: LoginService) { }
@@ -33,15 +33,15 @@ export class NavMenuComponent implements OnInit {
       if (res) {
         this.loginValue = 'admin';
       }
-    });
+    })
 
     this.productService.subject.subscribe(res => {
       if (res) this.cCount -= res[1]
     })
+          
     this.productService.subjectTwo.subscribe(res => {
       if (res) this.cCount = res
     })
-
   }
-
+          
 }
