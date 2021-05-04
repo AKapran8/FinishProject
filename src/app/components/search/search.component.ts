@@ -23,6 +23,15 @@ export class SearchComponent implements OnInit {
         this.products = res.products;
       });
 
+    this.productService.subjectProduct.subscribe(res => {
+      if (res) {
+        this.productService.getSearchProducts()
+          .subscribe((res: IGetProductResponse) => {
+            this.products = res.products;
+          });
+      }
+    })
+
   }
 
 

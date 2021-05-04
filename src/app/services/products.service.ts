@@ -36,6 +36,7 @@ export class ProductsService {
   // !
   subject = new Subject<any>();
   subjectTwo = new Subject<any>();
+  subjectProduct = new Subject<string>()
 
   constructor(private http: HttpClient) {
   }
@@ -82,8 +83,10 @@ export class ProductsService {
 
   // Функция поиска товаров по имени
   searchProductFunction(searchProduct, products: IProduct) {
-    this.searchProduct = searchProduct.toLowerCase();
-    this.searchSubject.next(this.searchProduct);
+    this.searchProduct = searchProduct.toLowerCase()
+    this.searchSubject.next(this.searchProduct)
+
+    this.subjectProduct.next(this.searchProduct)
   }
 
   // Ссылка для поиска товаров в search
